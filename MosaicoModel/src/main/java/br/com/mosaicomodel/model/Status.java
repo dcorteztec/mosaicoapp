@@ -2,10 +2,10 @@ package br.com.mosaicomodel.model;
 
 public enum Status {
 
-	ATIVO("Ativ0"),
-    INATIVO("Inativ0"),
-    EXCLUIDO("Excluido"),
-    BLOQUEADO("Bloqueado");
+	ATIVO("A"),
+    INATIVO("I"),
+    EXCLUIDO("E"),
+    BLOQUEADO("B");
      
     private String state;
      

@@ -46,12 +46,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
-        .antMatchers("/", "/home","/newuser").permitAll()
-        .antMatchers("/admin/**").access("hasRole('ADMIN')")
-        .antMatchers("/user/**").access("hasRole('ADMIN') and hasRole('USUARIO')")
-        .and().formLogin().loginPage("/login")
+        .antMatchers("/", "/home","/newuser","/usuarioRest/**").permitAll()
+        .antMatchers("/admin/**").access("hasRole('USUARIO') or hasRole('ADMIN')")
+        .and().formLogin().loginPage("/home").defaultSuccessUrl("/admin")
         .usernameParameter("email").passwordParameter("senha")
-        .and().csrf()
         .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+         http.csrf().disable();       
     }
 }

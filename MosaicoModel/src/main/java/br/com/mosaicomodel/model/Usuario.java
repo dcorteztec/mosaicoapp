@@ -30,15 +30,7 @@ public class Usuario implements Serializable{
     @NotEmpty
     @Column(name="SENHA", nullable=false)
     private String senha;
-         
-    @NotEmpty
-    @Column(name="PRIMEIRO_NOME", nullable=false)
-    private String primeiroNome;
- 
-    @NotEmpty
-    @Column(name="ULTIMO_NOME", nullable=false)
-    private String ultimoNome;
- 
+          
     @NotEmpty
     @Column(name="EMAIL", nullable=false)
     private String email;
@@ -67,22 +59,6 @@ public class Usuario implements Serializable{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public String getPrimeiroNome() {
-		return primeiroNome;
-	}
-
-	public void setPrimeiroNome(String primeiroNome) {
-		this.primeiroNome = primeiroNome;
-	}
-
-	public String getUltimoNome() {
-		return ultimoNome;
-	}
-
-	public void setUltimoNome(String ultimoNome) {
-		this.ultimoNome = ultimoNome;
 	}
 
 	public String getEmail() {

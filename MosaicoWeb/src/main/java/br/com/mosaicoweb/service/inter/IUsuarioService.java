@@ -9,4 +9,6 @@ public interface IUsuarioService {
 	Usuario findById(Long id);
 
 	Usuario findByEmail(String email);
+
+	boolean isEmailExist(Usuario usuario);
 }

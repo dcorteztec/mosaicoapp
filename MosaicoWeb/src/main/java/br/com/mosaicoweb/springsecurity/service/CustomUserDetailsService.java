@@ -30,9 +30,10 @@ public class CustomUserDetailsService implements UserDetailsService{
 	        if(usuario==null){
 	            System.out.println("User not found");
 	            throw new UsernameNotFoundException("Username not found"); 
-	        }
+	        }else{
 	            return new org.springframework.security.core.userdetails.User(usuario.getEmail(), usuario.getSenha(), 
-	                 usuario.getStatus().equals("Ativo"), true, true, true, getGrantedAuthorities(usuario));
+	                 usuario.getStatus().equals("A"), true, true, true, getGrantedAuthorities(usuario));
+	        } 
 	    }
 	 
 	     

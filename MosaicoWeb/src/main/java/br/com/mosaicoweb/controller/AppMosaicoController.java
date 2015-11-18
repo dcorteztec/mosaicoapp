@@ -34,7 +34,8 @@ public class AppMosaicoController {
     
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
-        model.addAttribute("greeting", "Hi, Welcome to mysite");
+    	Usuario usuario = new Usuario();
+    	model.addAttribute("usuario", usuario);
         return "mosaicoApp.home";
     }
  
@@ -43,13 +44,7 @@ public class AppMosaicoController {
         model.addAttribute("user", getPrincipal());
         return "admin";
     }
- 
-    @RequestMapping(value = "/usuario", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "usuario";
-    }
- 
+  
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
@@ -57,8 +52,8 @@ public class AppMosaicoController {
     }
  
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage() {
-        return "login";
+    public String loginPage(ModelMap model) {
+        return "mosaicoApp.admin";
     }
  
     @RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -71,12 +66,12 @@ public class AppMosaicoController {
     }
  
      
-    @RequestMapping(value = "/newUser", method = RequestMethod.GET)
-    public String newRegistration(ModelMap model) {
-        Usuario usuario = new Usuario();
-        model.addAttribute("usuario", usuario);
-        return "newuser";
-    }
+//    @RequestMapping(value = "/newUser", method = RequestMethod.GET)
+//    public String newRegistration(ModelMap model) {
+//        Usuario usuario = new Usuario();
+//        model.addAttribute("usuario", usuario);
+//        return "newuser";
+//    }
  
     /*
      * This method will be called on form submission, handling POST request It
@@ -93,8 +88,8 @@ public class AppMosaicoController {
         usuarioService.save(usuario);
        
          
-        model.addAttribute("success", "User " + usuario.getPrimeiroNome() + " has been registered successfully");
-        return "registrationsuccess";
+        model.addAttribute("success", "User " + usuario.getEmail() + " has been registered successfully");
+        return "mosaicoApp.home";
     }
  
      

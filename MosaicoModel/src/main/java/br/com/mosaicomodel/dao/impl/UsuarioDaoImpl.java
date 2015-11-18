@@ -1,5 +1,7 @@
 package br.com.mosaicomodel.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -27,6 +29,13 @@ public class UsuarioDaoImpl extends AbstractDao<Long, Usuario> implements IUsuar
 		 Criteria crit = createEntityCriteria();
 	     crit.add(Restrictions.eq("email", email));
 	     return (Usuario) crit.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Usuario> listUsuarios() {
+		Criteria criteria = createEntityCriteria();
+		return (List<Usuario>)criteria.list();
 	}
 
 	

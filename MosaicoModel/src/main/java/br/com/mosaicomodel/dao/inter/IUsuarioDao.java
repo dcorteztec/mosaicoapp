@@ -1,5 +1,7 @@
 package br.com.mosaicomodel.dao.inter;
 
+import java.util.List;
+
 import br.com.mosaicomodel.model.Usuario;
 
 public interface IUsuarioDao {
@@ -9,5 +11,7 @@ public interface IUsuarioDao {
 	Usuario findById(Long id);
 
 	Usuario findByEmail(String email);
+	
+	List<Usuario> listUsuarios();
     
 }
