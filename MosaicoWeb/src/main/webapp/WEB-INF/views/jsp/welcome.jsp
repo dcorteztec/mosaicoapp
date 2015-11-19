@@ -58,6 +58,7 @@
     			<div class="row">
     			<div class="col-md-12">
     					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">PRIMEIRO <span>PASSO</span></h2>
+    					<div flash-message="5000" ></div> 
     				</div>
     				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50" data-wow-delay="0.9s">
 <%--     					<form:form method="POST" modelAttribute="usuario" action="/mosaicoDeIdeias/newUser">  --%>
@@ -76,9 +77,17 @@
                       <input type="hidden" ng-model="ctrl.usuario.id" />
                       
                       <input type="email" ng-model="ctrl.usuario.email" name="email" class="form-control" placeholder="Email" required />
+                      <div class="has-error" ng-show="myForm.$dirty">
+                          <span ng-show="myForm.email.$error.required">Campo Obrigatório</span>
+                           <span ng-show="myForm.email.$invalid">Email Inválido </span>
+                      </div>
                       <input type="password" ng-model="ctrl.usuario.senha" name="senha" class="form-control" placeholder="Senha" required/>
+                      <div class="has-error" ng-show="myForm.$dirty">
+                          <span ng-show="myForm.senha.$error.required">Campo Obrigatório</span>
+                          
+                      </div>
                       
-                      <input type="submit"  value="REGISTRAR" class="form-control">
+                      <input type="submit"  value="REGISTRAR" class="form-control" ng-disabled="myForm.$invalid">
                  </form>
 			</div>                      
     				</div>
