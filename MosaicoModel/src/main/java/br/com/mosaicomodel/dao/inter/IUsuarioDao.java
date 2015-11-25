@@ -13,5 +13,7 @@ public interface IUsuarioDao {
 	Usuario findByEmail(String email);
 	
 	List<Usuario> listUsuarios();
+	
+	void updatePrimeiroAcesso(Long idUsuario);
     
 }

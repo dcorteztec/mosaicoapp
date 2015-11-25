@@ -2,6 +2,7 @@ package br.com.mosaicomodel.model;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,6 +40,9 @@ public class Usuario implements Serializable{
     @Column(name="STATUS", nullable=false)
     private String status=Status.ATIVO.getStatus();
  
+    @Column(name="PRIMEIRO_ACESSO", nullable=true)
+    private Date primeiroAcesso;
+    
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "TB_USUARIO_USUARIO_PERFIL", 
              joinColumns = { @JoinColumn(name = "USUARIO_ID") }, 
@@ -108,6 +112,14 @@ public class Usuario implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Date getPrimeiroAcesso() {
+		return primeiroAcesso;
+	}
+
+	public void setPrimeiroAcesso(Date primeiroAcesso) {
+		this.primeiroAcesso = primeiroAcesso;
 	}
 
    

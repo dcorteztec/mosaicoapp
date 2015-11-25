@@ -2,6 +2,7 @@ br\com\mosaicomodel\model\Usuario.class
 br\com\mosaicomodel\dao\impl\UsuarioPerfilDaoImpl.class
 br\com\mosaicomodel\model\Status.class
 br\com\mosaicomodel\model\UsuarioPerfilTipo.class
+br\com\mosaicomodel\util\Constantes.class
 br\com\mosaicomodel\dao\inter\IUsuarioPerfilDao.class
 br\com\mosaicomodel\dao\AbstractDao.class
 br\com\mosaicomodel\model\UsuarioPerfil.class

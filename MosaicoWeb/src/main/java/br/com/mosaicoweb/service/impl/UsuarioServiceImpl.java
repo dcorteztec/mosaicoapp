@@ -62,6 +62,12 @@ public class UsuarioServiceImpl implements IUsuarioService{
         return null;
     }
 
+	@Override
+	public void updatePrimeiroAcesso(Long idUsuario) {
+		dao.updatePrimeiroAcesso(idUsuario);
+		
+	}
+
 	
  
 }

@@ -1,5 +1,6 @@
 package br.com.mosaicomodel.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -36,6 +37,16 @@ public class UsuarioDaoImpl extends AbstractDao<Long, Usuario> implements IUsuar
 	public List<Usuario> listUsuarios() {
 		Criteria criteria = createEntityCriteria();
 		return (List<Usuario>)criteria.list();
+	}
+
+	@Override
+	public void updatePrimeiroAcesso(Long idUsuario) {
+		
+		String hql = "UPDATE Usuario u set u.primeiroAcesso = :primeiroAcesso WHERE u.id = :idUsuario";
+		getSession().createQuery(hql).setDate("primeiroAcesso", new Date())
+		.setLong("idUsuario", idUsuario).executeUpdate();
+	
+				
 	}
 
 	

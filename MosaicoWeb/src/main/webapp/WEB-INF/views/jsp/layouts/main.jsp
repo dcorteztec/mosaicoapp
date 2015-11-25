@@ -18,19 +18,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<c:url value='/static/css/templatemo-style.css'/>">
 		<link rel="stylesheet" href="<c:url value='/static/css/angular-flash.min.css'/>">
-		<script src="<c:url value='/static/js/jquery.js'/>"></script>
 		
-		<script src="<c:url value='/static/js/bootstrap.min.js'/>"></script>
-        <script src="<c:url value='/static/js/jquery.singlePageNav.min.js'/>"></script>
-		<script src="<c:url value='/static/js/typed.js'/>"></script>
-		<script src="<c:url value='/static/js/wow.min.js"'/>"></script>
-		<script src="<c:url value='/static/js/custom.js"'/>"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-        <script src="<c:url value='/static/js/app.js' />"></script>
-        <script src="<c:url value='/static/js/service/usuario_service.js' />"></script>
-        <script src="<c:url value='/static/js/controller/usuario_controller.js' />"></script>
-        <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
-	</head>
   <body id="top"  ng-app="mosaicoApp" class="ng-cloak">
   <!-- start preloader -->
 		<div class="preloader">
@@ -50,6 +38,18 @@
                 <tiles:insertAttribute name="footer" />
           
 
-   
+        <script src="<c:url value='/static/js/jquery.js'/>"></script>
+		
+		<script src="<c:url value='/static/js/bootstrap.min.js'/>"></script>
+        <script src="<c:url value='/static/js/jquery.singlePageNav.min.js'/>"></script>
+		<script src="<c:url value='/static/js/typed.js'/>"></script>
+		<script src="<c:url value='/static/js/wow.min.js"'/>"></script>
+		<script src="<c:url value='/static/js/custom.js"'/>"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+        <script src="<c:url value='/static/js/app.js' />"></script>
+        <script src="<c:url value='/static/js/service/usuario_service.js' />"></script>
+        <script src="<c:url value='/static/js/controller/usuario_controller.js' />"></script>
+        <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
+	</head>
   </body>
 </html>

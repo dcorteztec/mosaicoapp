@@ -6,7 +6,7 @@
   <definition name="myapp.homepage" template="/WEB-INF/views/jsp/layouts/main.jsp">
     <put-attribute name="title" value="Spring MVC Tiles Integration" />
     <put-attribute name="header" type="template" value="/WEB-INF/views/jsp/templates/header.jsp" />
-    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/templates/index.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/welcome.jsp" />
     <put-attribute name="footer" type="template" value="/WEB-INF/views/jsp/templates/footer.jsp" />
   </definition>
 </tiles-definitions>

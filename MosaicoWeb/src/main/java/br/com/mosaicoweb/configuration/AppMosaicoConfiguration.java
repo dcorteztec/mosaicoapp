@@ -31,7 +31,7 @@ public class AppMosaicoConfiguration extends WebMvcConfigurerAdapter{
 	    @Bean
 	    TilesConfigurer tilesConfigurer(){
 	        TilesConfigurer tilesConfigurer = new TilesConfigurer();
-	        tilesConfigurer.setDefinitions("WEB-INF/views/jsp/tiles/tiles.xml","WEB-INF/views/jsp/tiles/tiles.xml");
+	        tilesConfigurer.setDefinitions(new String[] {"WEB-INF/views/jsp/tiles/admin.xml","WEB-INF/views/jsp/tiles/tiles.xml"});
 	        tilesConfigurer.setPreparerFactoryClass(org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory.class);
 	        return tilesConfigurer;    
 	    }

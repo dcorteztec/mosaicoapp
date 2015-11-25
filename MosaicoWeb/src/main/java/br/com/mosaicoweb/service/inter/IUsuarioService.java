@@ -11,4 +11,6 @@ public interface IUsuarioService {
 	Usuario findByEmail(String email);
 
 	boolean isEmailExist(Usuario usuario);
+	
+	void updatePrimeiroAcesso(Long idUsuario);
 }

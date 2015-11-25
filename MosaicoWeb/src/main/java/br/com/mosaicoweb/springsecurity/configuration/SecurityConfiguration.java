@@ -20,7 +20,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Autowired
     @Qualifier("customUserDetailsService")
     UserDetailsService userDetailsService;
-     
+    
+	@Autowired
+	CustomSuccessHandler customSuccessHandler;
      
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -47,8 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
         .antMatchers("/", "/home","/newuser","/usuarioRest/**").permitAll()
-        .antMatchers("/admin/**").access("hasRole('USUARIO') or hasRole('ADMIN')")
-        .and().formLogin().loginPage("/home").defaultSuccessUrl("/admin")
+        .antMatchers("/admin/**","/primeiro_acesso/").access("hasRole('USUARIO') or hasRole('ADMIN')")
+        .and().formLogin().loginPage("/home").successHandler(customSuccessHandler)
         .usernameParameter("email").passwordParameter("senha")
         .and().exceptionHandling().accessDeniedPage("/Access_Denied");
          http.csrf().disable();       

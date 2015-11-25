@@ -24,12 +24,17 @@ public abstract class AbstractDao <PK extends Serializable, T> {
         return sessionFactory.getCurrentSession();
     }
  
-    public T getByKey(PK key) {
+    @SuppressWarnings("unchecked")
+	public T getByKey(PK key) {
         return (T) getSession().get(persistentClass, key);
     }
  
     public void persist(T entity) {
         getSession().persist(entity);
+    }
+    
+    public void merge(T entity) {
+        getSession().merge(entity);
     }
  
     public void delete(T entity) {
