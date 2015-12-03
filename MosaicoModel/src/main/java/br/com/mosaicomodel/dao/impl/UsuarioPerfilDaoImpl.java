@@ -8,7 +8,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import br.com.mosaicomodel.dao.AbstractDao;
-import br.com.mosaicomodel.dao.inter.IUsuarioPerfilDao;
+import br.com.mosaicomodel.dao.interfaces.IUsuarioPerfilDao;
 import br.com.mosaicomodel.model.UsuarioPerfil;
 
 @Repository("usuarioPerfilDao")

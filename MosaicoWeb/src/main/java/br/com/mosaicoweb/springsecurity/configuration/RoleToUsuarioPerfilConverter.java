@@ -5,7 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import br.com.mosaicomodel.model.UsuarioPerfil;
-import br.com.mosaicoweb.service.inter.IUsuarioPerfilService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 
 @Component
 public class RoleToUsuarioPerfilConverter implements Converter<Object, UsuarioPerfil>{

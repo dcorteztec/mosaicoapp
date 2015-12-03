@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.mosaicomodel.dao.inter.IUsuarioPerfilDao;
+import br.com.mosaicomodel.dao.interfaces.IUsuarioPerfilDao;
 import br.com.mosaicomodel.model.UsuarioPerfil;
-import br.com.mosaicoweb.service.inter.IUsuarioPerfilService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 
 @Service("usuarioPerfilService")
 @Transactional

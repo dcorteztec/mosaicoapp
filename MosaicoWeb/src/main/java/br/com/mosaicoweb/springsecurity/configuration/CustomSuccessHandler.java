@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import org.springframework.stereotype.Component;
 
 import br.com.mosaicomodel.model.Usuario;
-import br.com.mosaicoweb.service.inter.IUsuarioService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

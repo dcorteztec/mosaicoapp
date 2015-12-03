@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.model.UsuarioPerfil;
-import br.com.mosaicoweb.service.inter.IUsuarioService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{

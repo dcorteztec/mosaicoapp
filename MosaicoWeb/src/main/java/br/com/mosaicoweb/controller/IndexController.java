@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.model.UsuarioPerfil;
-import br.com.mosaicoweb.service.inter.IUsuarioPerfilService;
-import br.com.mosaicoweb.service.inter.IUsuarioService;
+import br.com.mosaicoweb.controller.abstracts.MainController;
+import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @Controller
 public class IndexController extends MainController{

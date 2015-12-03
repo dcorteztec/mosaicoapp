@@ -9,12 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.mosaicomodel.dao.inter.IUsuarioDao;
+import br.com.mosaicomodel.dao.interfaces.IUsuarioDao;
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.model.UsuarioPerfil;
 import br.com.mosaicomodel.util.Constantes;
-import br.com.mosaicoweb.service.inter.IUsuarioPerfilService;
-import br.com.mosaicoweb.service.inter.IUsuarioService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @Service("usuarioService")
 @Transactional

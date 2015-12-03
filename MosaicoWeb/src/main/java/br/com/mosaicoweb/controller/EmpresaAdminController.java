@@ -11,7 +11,7 @@ import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @Controller
-public class MosaicoAdminController extends MainController{
+public class EmpresaAdminController extends MainController{
 
 	@Autowired
     IUsuarioPerfilService usuarioPerfilService;
@@ -19,9 +19,10 @@ public class MosaicoAdminController extends MainController{
     @Autowired
     IUsuarioService usuarioService;
     
-    @RequestMapping(value = "/primeiro_acesso", method = RequestMethod.GET)
-    public String prineiroAcesso(ModelMap model) {
+    @RequestMapping(value = "/admin/endereco", method = RequestMethod.GET)
+    public String enderecoForm(ModelMap model) {
         model.addAttribute("usuario", getPrincipal());
-        return "mosaicoApp.primeiro_acesso";
+        return "mosaicoApp.endereco";
     }
+    
 }

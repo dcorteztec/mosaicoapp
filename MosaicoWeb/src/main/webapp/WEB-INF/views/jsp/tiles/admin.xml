@@ -5,7 +5,13 @@
 <tiles-definitions>                                       
   <definition name="mosaicoApp.primeiro_acesso" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
     <put-attribute name="title" value="Bem vindo ao Mosaico App" />
-    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/layouts/admin/primeiroAcessoForm.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/primeiroAcessoForm.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  <definition name="mosaicoApp.endereco" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/endereco.jsp" />
     <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
     
   </definition>

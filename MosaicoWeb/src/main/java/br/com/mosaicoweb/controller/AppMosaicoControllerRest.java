@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.mosaicomodel.model.Usuario;
-import br.com.mosaicoweb.service.inter.IUsuarioService;
+import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
 @RestController
 public class AppMosaicoControllerRest {
