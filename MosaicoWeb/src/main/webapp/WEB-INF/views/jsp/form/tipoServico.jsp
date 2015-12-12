@@ -21,37 +21,25 @@
 
 				<!-- /.box-header -->
 				<!-- form start -->
-				<form:form method="POST" modelAttribute="empresa" role="form">
+				<form:form method="POST" modelAttribute="tipoServico" role="form">
 				<div > 
 					<div class="box box-primary" style="height: 200px" >
 						<div class="box-header">
-							<h3 class="box-title">Dados Gerais</h3>
+							<h3 class="box-title">Tipos De Serviços</h3>
 						</div>
 						<div class="box-body">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="nomeEmpresa">Nome da Empresa</label> <input
-										type="text" class="form-control" id="nomeEmpresa"
-										placeholder="Nome da Empresa" name="nome" required="required">
+									<label for="nome">Nome</label> <input
+										type="text" class="form-control" id="nome"
+										placeholder="Nome" name="nome" required="required">
 								</div>
 							</div>
 							<div class="col-xs-4">
 								<div class="form-group">
-									<label for="telefone">Telefone</label> <input type="text"
-										class="form-control" id="telefone" name="telefone" placeholder="Telefone"
+									<label for="descricao">Descrição</label> <input type=""
+										class="form-control" id="descricao" name="descricao" placeholder="Descrição"
 										required="required">
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div class="form-group">
-									<label for="cel">Celular</label> <input type="text"
-										class="form-control" id="cel" name="celular" placeholder="Celular">
-								</div>
-							</div>
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label for="site">Site</label> <input type="text"
-										class="form-control" id="site" name="site" placeholder="Site">
 								</div>
 							</div>
 						</div>

@@ -60,5 +60,14 @@
                                 <li><a href="<c:url value='/admin/endereco'/>"><i class="fa fa-angle-double-right"></i> Endereço</a></li>                            
                             </ul>
                         </li>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Administração</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value='/admin/tipoServico'/>"><i class="fa fa-angle-double-right"></i> Tipos de Serviços</a></li>                            
+                            </ul>
+                        </li>
                      
                     </ul>

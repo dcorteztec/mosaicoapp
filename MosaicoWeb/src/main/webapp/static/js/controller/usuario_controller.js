@@ -12,8 +12,7 @@ App.controller('UsuarioController', ['$scope', 'UsuarioService','Flash', functio
                
     };
     self.submit = function() {
-        if(self.usuario.id==null){
-            console.log('Saving New User', self.usuario);    
+        if(self.usuario.id==null){  
             self.createUser(self.usuario);
             
 //                var message = '<strong> Well done!</strong>  You successfully read this important alert message.';

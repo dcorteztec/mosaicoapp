@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -54,6 +55,9 @@ public class Endereco extends br.com.mosaicomodel.model.abstracts.Entity{
     @ManyToOne
 	@JoinColumn(name="EMPRESA_ID",nullable=false)
 	private Empresa empresa;
+    
+    @Transient
+    private String nomeEmpresa;
     
 	public String getCep() {
 		return cep;
@@ -108,6 +112,12 @@ public class Endereco extends br.com.mosaicomodel.model.abstracts.Entity{
 	}
 	public void setLng(String lng) {
 		this.lng = lng;
+	}
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
+	}
+	public void setNomeEmpresa(String nomeEmpresa) {
+		this.nomeEmpresa = nomeEmpresa;
 	}
 	
 	

@@ -296,5 +296,7 @@
         
         <script src="<c:url value='/static/js/app.js' />"></script>
         <script src="<c:url value='/static/js/controller/utilController.js' />"></script>
+        <script src="<c:url value='/static/js/controller/tipoServico_service.js' />"></script>
+         <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
 </html>

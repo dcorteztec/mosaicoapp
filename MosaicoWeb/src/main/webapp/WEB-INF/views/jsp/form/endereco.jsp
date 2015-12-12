@@ -22,7 +22,7 @@
 				<!-- /.box-header -->
 				<!-- form start -->
 				<form:form method="POST" modelAttribute="endereco" role="form">
-				<div  ng-controller="Cep"> 
+					<div ng-controller="Cep">
 						<div class="box box-success">
 							<div class="box-header">
 								<h3 class="box-title">Endereço</h3>
@@ -30,75 +30,86 @@
 							<div class="box-body"></div>
 							<div class="col-xs-5">
 								<div class="form-group">
+									<label for="cepId">Empresa</label>
+									<form:select path="nomeEmpresa" cssClass="form-control" cssStyle="form-control">
+										<form:option value="NONE" label="--- Select ---" />
+										<form:options items="${empresas}" itemLabel="nome" itemValue="id" />
+									</form:select>
+								</div>
+							</div>
+							<div class="col-xs-5">
+								<div class="form-group">
 									<label for="cepId">CEP</label> <input type="text"
-										class="form-control" id="cepId" ng-model="cep" placeholder="CEP"
-										required="required" ng-blur="cepRest()">
+										class="form-control" id="cepId" ng-model="cep" name="cep"
+										placeholder="CEP" required="required" ng-blur="cepRest()">
 								</div>
 							</div>
 							<div class="col-xs-9">
 								<div class="form-group">
 									<label for="logradouro">Logradouro</label> <input type="text"
 										class="form-control" id="logradouro" placeholder="Logradouro"
-										required="required" value="{{end.logradouro}}">
+										required="required" name="logradouro"
+										value="{{end.logradouro}}">
 								</div>
 							</div>
 							<div class="col-xs-3">
 								<div class="form-group">
 									<label for="numero">Número</label> <input type="text"
 										class="form-control" id="numero" placeholder="Número"
-										required="required" >
+										required="required" name="numero">
 								</div>
 							</div>
 							<div class="col-xs-10">
 								<div class="form-group">
 									<label for="complemento">Complemento</label> <input type="text"
 										class="form-control" id="complemento"
-										placeholder="Complemento">
+										placeholder="Complemento" name="complemento">
 								</div>
 							</div>
 							<div class="col-xs-3">
 								<div class="form-group">
 									<label for="estado">Estado</label> <input type="text"
 										class="form-control" id="estado" placeholder="Estado"
-										readonly="readonly" value="RJ">
+										readonly="readonly" value="RJ" name="estado">
 								</div>
 							</div>
 							<div class="col-xs-5">
 								<div class="form-group">
 									<label for="cidade">Cidade</label> <input type="text"
 										class="form-control" id="cidade" placeholder="Cidade"
-										required="required" value={{end.cidade}}>
+										required="required" value={{end.cidade}} name="cidade">
 								</div>
 							</div>
 							<div class="col-xs-5">
 								<div class="form-group">
 									<label for="bairro">Bairro</label> <input type="text"
 										class="form-control" id="bairro" placeholder="Bairro"
-										required="required" value={{end.bairro}}>
+										required="required" value={{end.bairro}} name="bairro">
 								</div>
 							</div>
 							<div class="col-xs-5">
 								<div class="form-group">
-									 <input type="hidden"
-										class="form-control" id="latitude" placeholder="Latitude"
-										required="required" value={{geo.results[0].geometry.location.lat}}>
+									<input type="hidden" class="form-control" id="latitude"
+										placeholder="Latitude" required="required"
+										value={{geo.results[0].geometry.location.lat}} name="lat">
 								</div>
 							</div>
 							<div class="col-xs-5">
 								<div class="form-group">
-									<input type="hidden"
-										class="form-control" id="longitude" placeholder="Longitude"
-										required="required" value={{geo.results[0].geometry.location.lng}}>
+									<input type="hidden" class="form-control" id="longitude"
+										placeholder="Longitude" required="required"
+										value={{geo.results[0].geometry.location.lng}} name="lng">
 								</div>
 							</div>
 						</div>
-					
-					<div class="col-xs-8">
-						<div class="form-group">
-							<button type="submit" ng-click="getLatLng()" class="btn btn-primary">Enviar</button>
+
+						<div class="col-xs-8">
+							<div class="form-group">
+								<button type="submit" ng-click="getLatLng()"
+									class="btn btn-primary">Enviar</button>
+							</div>
 						</div>
 					</div>
-                </div>
 				</form:form>
 				<!-- /.box -->
 			</div>
