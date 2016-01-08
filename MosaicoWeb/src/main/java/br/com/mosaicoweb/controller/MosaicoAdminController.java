@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.mosaicomodel.model.Empresa;
-import br.com.mosaicomodel.model.TipoServico;
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicoweb.controller.abstracts.MainController;
 import br.com.mosaicoweb.service.interfaces.IEmpresaService;
@@ -29,6 +28,7 @@ public class MosaicoAdminController extends MainController{
     @Autowired IEmpresaService empresaService;
      
     @Autowired EmpresaAdminController empresaController;
+    
     
     @RequestMapping(value = "/primeiro_acesso", method = RequestMethod.GET)
     public String prineiroAcesso(ModelMap model) {
@@ -48,11 +48,4 @@ public class MosaicoAdminController extends MainController{
        return empresaController.enderecoForm(model);
     }
     
-    @RequestMapping(value = "/admin/tipoServico", method = RequestMethod.GET)
-    public String tipoServico(ModelMap model) {
-        model.addAttribute("usuario", getPrincipal());
-        TipoServico servico = new TipoServico();
-        model.addAttribute("tipoServico", servico);
-        return "mosaicoApp.tipoServico";
-    }
 }

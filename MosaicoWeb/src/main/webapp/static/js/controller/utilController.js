@@ -1,4 +1,4 @@
-angular.module('mosaicoApp', [])
+angular.module('mosaicoAppCep', [])
 .controller('Cep', function($scope, $http) {
 	
 	

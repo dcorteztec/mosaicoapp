@@ -16,7 +16,7 @@
 	<section class="content">
 		<div class="row">
 			<!-- left column -->
-			<div class="col-md-6">
+			<div class="col-md-6"  ng-app="mosaicoAppCep">
 				<!-- general form elements -->
 
 				<!-- /.box-header -->

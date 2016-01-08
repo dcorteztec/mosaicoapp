@@ -13,9 +13,13 @@
         <link href="<c:url value='/static/admin/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
         <link href="<c:url value='/static/admin/css/ionicons.min.css'/>" rel="stylesheet" type="text/css" />
+        
+        <link href="<c:url value='/static/admin/css/ng-table.css'/>" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
        
         <link href="<c:url value='/static/admin/css/AdminLTE.css'/>" rel="stylesheet" type="text/css" />
+        
+        <link href="<c:url value='/static/admin/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +28,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue" ng-app="mosaicoApp">
+    <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="index.html" class="logo">
@@ -287,16 +291,28 @@
 
 
     </body>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="<c:url value='/static/js/dataTable/jquery.dataTables.js'/>"></script>
+<%--         <script src="<c:url value='/static/js/dataTable/dataTables.bootstrap.js'/>"></script> --%>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+        <script src="<c:url value='/static/js/appAdmin.js' />"></script>
+        
         <!-- Bootstrap -->
         <script src="<c:url value='/static/admin/js/bootstrap.min.js'/>" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="<c:url value='/static/admin/js/AdminLTE/app.js'/>" type="text/javascript"></script>
         
-        <script src="<c:url value='/static/js/app.js' />"></script>
         <script src="<c:url value='/static/js/controller/utilController.js' />"></script>
-        <script src="<c:url value='/static/js/controller/tipoServico_service.js' />"></script>
-         <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
+        <script src="<c:url value='/static/js/service/tipoServico_service.js' />"></script>
+        <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
+         <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.js"></script>     
+       <script src="<c:url value='/static/js/dataTable/dirPagination.js'/>"></script>
+         <script src="<c:url value='/static/js/controller/table_controller.js' />"></script>
+          
+       
+
+        
+ 
+        
 </html>

@@ -1,11 +1,11 @@
 'use strict';
  
-App.factory('TipoServicoService', ['$http', '$q', function($http, $q){
+AppAdmin.factory('TipoServicoService', ['$http', '$q', function($http, $q){
  
     return {
          
-            fetchAllUsers: function() {
-                    return $http.get('http://localhost:8080/Spring4MVCAngularJSExample/user/')
+            fetchAllServices: function() {
+                    return $http.get('http://localhost:8080/mosaicoDeIdeias/admin/tipoServico/')
                             .then(
                                     function(response){
                                         return response.data;
@@ -17,8 +17,8 @@ App.factory('TipoServicoService', ['$http', '$q', function($http, $q){
                             );
             },
              
-            createUser: function(user){
-                    return $http.post('http://localhost:8080/Spring4MVCAngularJSExample/user/', user)
+            createService: function(tipoServico){
+                    return $http.post('http://localhost:8080/mosaicoDeIdeias/admin/tipoServico/', tipoServico)
                             .then(
                                     function(response){
                                         return response.data;
@@ -30,8 +30,8 @@ App.factory('TipoServicoService', ['$http', '$q', function($http, $q){
                             );
             },
              
-            updateUser: function(user, id){
-                    return $http.put('http://localhost:8080/Spring4MVCAngularJSExample/user/'+id, user)
+            updateService: function(tipoServico, id){
+                    return $http.put('http://localhost:8080/mosaicoDeIdeias/admin/tipoServico/'+id, tipoServico)
                             .then(
                                     function(response){
                                         return response.data;
@@ -43,8 +43,10 @@ App.factory('TipoServicoService', ['$http', '$q', function($http, $q){
                             );
             },
              
-            deleteUser: function(id){
-                    return $http.delete('http://localhost:8080/Spring4MVCAngularJSExample/user/'+id)
+            
+            
+            deleteService: function(id){
+                    return $http.delete('http://localhost:8080/mosaicoDeIdeias/admin/tipoServico/'+id)
                             .then(
                                     function(response){
                                         return response.data;
@@ -54,7 +56,10 @@ App.factory('TipoServicoService', ['$http', '$q', function($http, $q){
                                         return $q.reject(errResponse);
                                     }
                             );
-            }
+            },
+            
+            
+            
          
     };
  

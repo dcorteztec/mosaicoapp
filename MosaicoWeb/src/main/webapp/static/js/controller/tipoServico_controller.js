@@ -1,15 +1,16 @@
 'use strict';
  
-App.controller('tipoServicoController', ['$scope', 'TipoServicoService', function($scope, UserService) {
+AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', function($scope, TipoServicoService) {
           var self = this;
-          self.user={id:null,username:'',address:'',email:''};
-          self.users=[];
+          self.tipoServico={id:null,nome:'',descricao:''};
+          self.tServicos=[];
                
-          self.fetchAllUsers = function(){
-              UserService.fetchAllUsers()
+         
+          self.fetchAllServices = function(){
+        	  TipoServicoService.fetchAllServices()
                   .then(
                                function(d) {
-                                    self.users = d;
+                                    self.tServicos = d;
                                },
                                 function(errResponse){
                                     console.error('Error while fetching Currencies');
@@ -17,54 +18,54 @@ App.controller('tipoServicoController', ['$scope', 'TipoServicoService', functio
                        );
           };
             
-          self.createUser = function(user){
-              UserService.createUser(user)
+          self.createService = function(tServico){
+        	  TipoServicoService.createService(tServico)
                       .then(
-                      self.fetchAllUsers, 
+                      self.fetchAllServices, 
                               function(errResponse){
                                    console.error('Error while creating User.');
                               } 
                   );
           };
  
-         self.updateUser = function(user, id){
-              UserService.updateUser(user, id)
+         self.updateService = function(tServico, id){
+        	 TipoServicoService.updateService(tServico, id)
                       .then(
-                              self.fetchAllUsers, 
+                              self.fetchAllServices, 
                               function(errResponse){
                                    console.error('Error while updating User.');
                               } 
                   );
           };
  
-         self.deleteUser = function(id){
-              UserService.deleteUser(id)
+         self.deleteService = function(id){
+        	 TipoServicoService.deleteService(id)
                       .then(
-                              self.fetchAllUsers, 
+                              self.fetchAllServices, 
                               function(errResponse){
                                    console.error('Error while deleting User.');
                               } 
                   );
           };
  
-          self.fetchAllUsers();
+          self.fetchAllServices();
  
           self.submit = function() {
-              if(self.user.id==null){
-                  console.log('Saving New User', self.user);    
-                  self.createUser(self.user);
+              if(self.tipoServico.id==null){
+                  console.log('Saving New User', self.tipoServico);    
+                  self.createService(self.tipoServico);
               }else{
-                  self.updateUser(self.user, self.user.id);
-                  console.log('User updated with id ', self.user.id);
+                  self.updateService(self.tipoServico, self.tipoServico.id);
+                  console.log('User updated with id ', self.tipoServico.id);
               }
               self.reset();
           };
                
           self.edit = function(id){
               console.log('id to be edited', id);
-              for(var i = 0; i < self.users.length; i++){
-                  if(self.users[i].id == id) {
-                     self.user = angular.copy(self.users[i]);
+              for(var i = 0; i < self.tServicos.length; i++){
+                  if(self.tServicos[i].id == id) {
+                     self.tipoServico = angular.copy(self.tServicos[i]);
                      break;
                   }
               }
@@ -72,18 +73,18 @@ App.controller('tipoServicoController', ['$scope', 'TipoServicoService', functio
                
           self.remove = function(id){
               console.log('id to be deleted', id);
-              for(var i = 0; i < self.users.length; i++){//clean form if the user to be deleted is shown there.
-                  if(self.users[i].id == id) {
+              for(var i = 0; i < self.tServicos.length; i++){//clean form if the user to be deleted is shown there.
+                  if(self.tServicos[i].id == id) {
                      self.reset();
                      break;
                   }
               }
-              self.deleteUser(id);
+              self.deleteService(id);
           };
  
            
           self.reset = function(){
-              self.user={id:null,username:'',address:'',email:''};
+              self.tipoServico={id:null,nome:'',descricao:''};
               $scope.myForm.$setPristine(); //reset Form
           };
  

@@ -3,6 +3,7 @@ package br.com.mosaicomodel.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import br.com.mosaicomodel.dao.AbstractDao;
@@ -28,6 +29,24 @@ public class TipoServicoDaoImpl extends AbstractDao<Long, TipoServico> implement
 	public List<TipoServico> listTipoServicos() {
 		Criteria criteria = createEntityCriteria();
 		return (List<TipoServico>)criteria.list();
+	}
+
+	@Override
+	public TipoServico findByName(String nome) {
+		 Criteria crit = createEntityCriteria();
+	     crit.add(Restrictions.eq("nome", nome));
+	     return (TipoServico) crit.uniqueResult();
+	}
+
+	@Override
+	public void updateTipoService(TipoServico tipoServico) {
+		merge(tipoServico);
+		
+	}
+
+	@Override
+	public void deleteTipoServico(TipoServico tipoServico) {		
+		delete(tipoServico);
 	}
 	
 	

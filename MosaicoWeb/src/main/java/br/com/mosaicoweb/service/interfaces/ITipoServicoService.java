@@ -11,4 +11,10 @@ public interface ITipoServicoService {
 	   TipoServico findById(Long id);
 	    
 	   public List<TipoServico> listTipoServicos();
+
+	   boolean isTipoExist(TipoServico tipoServico);
+
+	   void updateTipoService(TipoServico currentTipo);
+
+	   void deleteTipoServico(TipoServico servico);
 }
