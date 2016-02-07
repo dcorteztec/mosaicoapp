@@ -15,4 +15,8 @@ public interface IEmpresaDao {
 	List<Empresa> listEmpresas();
 	
 	List<Empresa> listEmpresasByIdUsuario(Long idUser);
+	
+	List<Long> idsEmpresaByIdUsuario(Long idUser);
+
+	void updateEmpresa(Empresa emp);
 }

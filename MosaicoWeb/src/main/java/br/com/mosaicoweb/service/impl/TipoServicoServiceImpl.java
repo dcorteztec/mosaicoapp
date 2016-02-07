@@ -31,6 +31,10 @@ public class TipoServicoServiceImpl implements ITipoServicoService{
 	public List<TipoServico> listTipoServicos() {
 		return dao.listTipoServicos();
 	}
+	
+	public List<Long> listIdTipoServicos() {
+		return dao.listIdTipoServicos();
+	}
 
 	@Override
 	public boolean isTipoExist(TipoServico tipoServico) {

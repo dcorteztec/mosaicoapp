@@ -1,4 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +20,8 @@
        
         <link href="<c:url value='/static/admin/css/AdminLTE.css'/>" rel="stylesheet" type="text/css" />
         
+        <link href="<c:url value='/static/admin/css/custom.css'/>" rel="stylesheet" type="text/css" />
+        
         <link href="<c:url value='/static/admin/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,10 +34,17 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.html" class="logo">
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                Mosaico
-            </a>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <a href="<c:url value='/admin'/>" class="logo">
+                        Mosaico
+                        </a>
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('USUARIO')">
+                        <a href="<c:url value='/painel'/>" class="logo">
+                        Mosaico
+                        </a>
+                    </sec:authorize>
+           
            <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -242,10 +252,11 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="../../img/avatar3.png" class="img-circle" alt="User Image" />
+
+                                    <img src="${empresa.urlLogo}" class="img-circle" alt="User Image" />
                                     <p>
-                                        Jane Doe - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                       ${empresa.nome}
+                                        <small> ${empresa.dataFormatada}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -266,7 +277,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<c:url value='/logout'/>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -292,7 +303,6 @@
 
     </body>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <script src="<c:url value='/static/js/dataTable/jquery.dataTables.js'/>"></script>
 <%--         <script src="<c:url value='/static/js/dataTable/dataTables.bootstrap.js'/>"></script> --%>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="<c:url value='/static/js/appAdmin.js' />"></script>
@@ -303,16 +313,25 @@
         <script src="<c:url value='/static/admin/js/AdminLTE/app.js'/>" type="text/javascript"></script>
         
         <script src="<c:url value='/static/js/controller/utilController.js' />"></script>
+        <script src="<c:url value='/static/js/service/endereco_service.js' />"></script>
+        <script src="<c:url value='/static/js/controller/endereco_controller.js' />"></script>
         <script src="<c:url value='/static/js/service/tipoServico_service.js' />"></script>
         <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
+        <script src="<c:url value='/static/js/controller/painel_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
-         <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.js"></script>     
-       <script src="<c:url value='/static/js/dataTable/dirPagination.js'/>"></script>
-         <script src="<c:url value='/static/js/controller/table_controller.js' />"></script>
+        <script src="<c:url value='/static/js/googleMaps/ng-map.min.js'/>"></script>
+        <script src=" http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.js"></script>     
+        <script src="<c:url value='/static/js/dataTable/dirPagination.js'/>"></script>
+        <script src="<c:url value='/static/js/controller/table_controller.js' />"></script>
+        <script src="<c:url value='/static/admin/js/plugins/input-mask/jquery.inputmask.js'/>" type="text/javascript"></script>
+        <script src="<c:url value='/static/admin/js/plugins/input-mask/jquery.inputmask.extensions.js'/>" type="text/javascript"></script>
+        <script src="http://maps.google.com/maps/api/js"></script>
           
-       
-
-        
+       <script type="text/javascript">
+			$(document).ready(function(){
+			 	 $(":input").inputmask();
+			});
+		</script>
  
         
 </html>

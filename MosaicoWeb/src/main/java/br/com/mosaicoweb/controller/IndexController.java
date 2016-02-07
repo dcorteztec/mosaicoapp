@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.com.mosaicomodel.model.Empresa;
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.model.UsuarioPerfil;
 import br.com.mosaicoweb.controller.abstracts.MainController;
+import br.com.mosaicoweb.service.interfaces.IEmpresaService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
@@ -32,6 +34,9 @@ public class IndexController extends MainController{
     @Autowired
     IUsuarioService usuarioService;
     
+    @Autowired
+    IEmpresaService empresaService;
+    
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
     	Usuario usuario = new Usuario();
@@ -42,9 +47,17 @@ public class IndexController extends MainController{
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap model) {
         model.addAttribute("usuario", getPrincipal());
-        return "admin";
+        return "mosaicoApp.painelAdmin";
     }
-    
+
+    @RequestMapping(value = "/painel", method = RequestMethod.GET)
+    public String painelUserPage(ModelMap model) {
+    	Usuario usuario = usuarioService.findByEmail(getPrincipal());
+    	List<Empresa> empresas = empresaService.listEmpresasByIdUsuario(usuario.getId());
+    	model.addAttribute("empresa", empresas.get(0));
+        model.addAttribute("usuario", getPrincipal());
+        return "mosaicoApp.painelUser";
+    }
   
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
@@ -71,13 +84,9 @@ public class IndexController extends MainController{
             BindingResult result, ModelMap model) {
  
         if (result.hasErrors()) {
-            System.out.println("There are errors");
             return "newuser";
         }
         usuarioService.save(usuario);
-       
-         
-        model.addAttribute("success", "User " + usuario.getEmail() + " has been registered successfully");
         return "mosaicoApp.home";
     }
  

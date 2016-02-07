@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -44,18 +45,23 @@ public class AppMosaicoConfiguration extends WebMvcConfigurerAdapter{
 	        return tilesConfigurer;    
 	    }
 	    
+	    @Bean(name = "multipartResolver")
+	    public CommonsMultipartResolver resolver() {
+	        return new CommonsMultipartResolver();
+	    }
+	    
 	    @Bean
 	    public static MessageSource messageSource() {
 	       ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 	       messageSource.setBasename("classpath:mensagem");
-	       messageSource.setDefaultEncoding("UTF-8");
+	       //messageSource.setFallbackToSystemLocale(false);
 	       return messageSource;
 	    }
 	    
 	    @Bean
 	    public LocaleResolver localeResolver(){
 			CookieLocaleResolver resolver = new CookieLocaleResolver();
-			resolver.setDefaultLocale(new Locale("pt_BR"));
+			resolver.setDefaultLocale(new Locale("pt_br"));
 			resolver.setCookieName("myLocaleCookie");
 			resolver.setCookieMaxAge(4800);
 			return resolver;

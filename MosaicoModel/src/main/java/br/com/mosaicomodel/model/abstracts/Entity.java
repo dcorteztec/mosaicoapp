@@ -1,5 +1,6 @@
 package br.com.mosaicomodel.model.abstracts;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,8 @@ public abstract class Entity implements IEntity{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @Column(name="COD_ID") 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	public Long getId() {

@@ -1,9 +1,9 @@
 package br.com.mosaicomodel.model;
 
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="TB_USUARIO")
-@AttributeOverride(name = "id", column = @Column(name = "id", nullable = false))
+@AttributeOverride(name = "USUARIO_ID", column = @Column(name = "COD_ID", nullable = false))
 public class Usuario extends br.com.mosaicomodel.model.abstracts.Entity{
 
 	
@@ -43,7 +43,7 @@ public class Usuario extends br.com.mosaicomodel.model.abstracts.Entity{
     @JoinTable(name = "TB_USUARIO_USUARIO_PERFIL", 
              joinColumns = { @JoinColumn(name = "USUARIO_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "USUARIO_PERFIL_ID") })
-    private Set<UsuarioPerfil> usuarioPerfis = new HashSet<UsuarioPerfil>();
+    private List<UsuarioPerfil> usuarioPerfis = new ArrayList<UsuarioPerfil>();
 
 	public String getSenha() {
 		return senha;
@@ -69,11 +69,11 @@ public class Usuario extends br.com.mosaicomodel.model.abstracts.Entity{
 		this.status = status;
 	}
 
-	public Set<UsuarioPerfil> getUsuarioPerfis() {
+	public List<UsuarioPerfil> getUsuarioPerfis() {
 		return usuarioPerfis;
 	}
 
-	public void setUsuarioPerfis(Set<UsuarioPerfil> usuarioPerfis) {
+	public void setUsuarioPerfis(List<UsuarioPerfil> usuarioPerfis) {
 		this.usuarioPerfis = usuarioPerfis;
 	}
 

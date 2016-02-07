@@ -15,4 +15,8 @@ public interface IEmpresaService {
     public List<Empresa> listEmpresasByIdUsuario(Long idUser);
     
     public List<Empresa> listEmpresas();
+    
+    public List<Long> idsEmpresaByIdUsuario(Long idUser);
+
+	void updateEmpresa(Empresa emp);
 }

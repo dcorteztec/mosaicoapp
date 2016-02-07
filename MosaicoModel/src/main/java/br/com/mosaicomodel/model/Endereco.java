@@ -3,6 +3,7 @@ package br.com.mosaicomodel.model;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="TB_ENDERECO")
-@AttributeOverride(name = "id", column = @Column(name = "id", nullable = false))
+@AttributeOverride(name = "ENDERECO_ID", column = @Column(name = "COD_ID", nullable = false))
 public class Endereco extends br.com.mosaicomodel.model.abstracts.Entity{
 
 	private static final long serialVersionUID = 1L;
@@ -52,12 +53,15 @@ public class Endereco extends br.com.mosaicomodel.model.abstracts.Entity{
     @Column(name="LONGITUDE", nullable=false)
 	private String lng;
 	
-    @ManyToOne
-	@JoinColumn(name="EMPRESA_ID",nullable=false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "EMPRESA_ID")
 	private Empresa empresa;
     
     @Transient
     private String nomeEmpresa;
+    
+    @Transient
+    private Long empresaId;
     
 	public String getCep() {
 		return cep;
@@ -118,6 +122,18 @@ public class Endereco extends br.com.mosaicomodel.model.abstracts.Entity{
 	}
 	public void setNomeEmpresa(String nomeEmpresa) {
 		this.nomeEmpresa = nomeEmpresa;
+	}
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	public Long getEmpresaId() {
+		return empresaId;
+	}
+	public void setEmpresaId(Long empresaId) {
+		this.empresaId = empresaId;
 	}
 	
 	

@@ -13,7 +13,7 @@ AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', fu
                                     self.tServicos = d;
                                },
                                 function(errResponse){
-                                    console.error('Error while fetching Currencies');
+                                    console.error('Error while fetching Service');
                                 }
                        );
           };
@@ -23,7 +23,7 @@ AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', fu
                       .then(
                       self.fetchAllServices, 
                               function(errResponse){
-                                   console.error('Error while creating User.');
+                                   console.error('Error while creating Service.');
                               } 
                   );
           };
@@ -33,7 +33,7 @@ AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', fu
                       .then(
                               self.fetchAllServices, 
                               function(errResponse){
-                                   console.error('Error while updating User.');
+                                   console.error('Error while updating Service.');
                               } 
                   );
           };
@@ -43,7 +43,7 @@ AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', fu
                       .then(
                               self.fetchAllServices, 
                               function(errResponse){
-                                   console.error('Error while deleting User.');
+                                   console.error('Error while deleting Service.');
                               } 
                   );
           };
@@ -52,11 +52,11 @@ AppAdmin.controller('TipoServicoController', ['$scope', 'TipoServicoService', fu
  
           self.submit = function() {
               if(self.tipoServico.id==null){
-                  console.log('Saving New User', self.tipoServico);    
+                  console.log('Saving New Service', self.tipoServico);    
                   self.createService(self.tipoServico);
               }else{
                   self.updateService(self.tipoServico, self.tipoServico.id);
-                  console.log('User updated with id ', self.tipoServico.id);
+                  console.log('Service updated with id ', self.tipoServico.id);
               }
               self.reset();
           };

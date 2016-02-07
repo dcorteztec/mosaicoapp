@@ -1,4 +1,5 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
  <div class="user-panel">
@@ -23,43 +24,45 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
+                    <sec:authorize access="hasRole('USUARIO')">
                         <li class="active">
-                            <a href=""> 
+                            <a href="<c:url value='/painel'/>"> 
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                            </a> 
                         </li>
-<!--                         <li class="treeview"> -->
-<!--                             <a href="#"> -->
-<!--                                 <i class="fa fa-bar-chart-o"></i> -->
-<!--                                 <span>Charts</span> -->
-<!--                                 <i class="fa fa-angle-left pull-right"></i> -->
-<!--                             </a> -->
-<!--                             <ul class="treeview-menu"> -->
-<!--                                 <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li> -->
-<!--                                 <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li> -->
-<!--                                 <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li> -->
-<!--                             </ul> -->
-<!--                         </li> -->
-<!--                         <li class="treeview"> -->
-<!--                             <a href="#"> -->
-<!--                                 <i class="fa fa-laptop"></i> -->
-<!--                                 <span>Dados Gerais</span> -->
-<!--                                 <i class="fa fa-angle-left pull-right"></i> -->
-<!--                             </a> -->
-<!--                             <ul class="treeview-menu"> -->
-<!--                                 <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li> -->
-<!--                                 <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li> -->
-<!--                             </ul> -->
-<!--                         </li> -->
+                    </sec:authorize>
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <li class="active">
+                            <a href="<c:url value='/admin'/>"> 
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                           </a> 
+                        </li>
+                    </sec:authorize>
+                     <c:if test="${empresa.nome ne null}">
+                        
+ 					<sec:authorize access="hasRole('USUARIO')">
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-edit"></i> <span>Dados Gerais</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<c:url value='/admin/endereco'/>"><i class="fa fa-angle-double-right"></i> Endereço</a></li>                            
+                                <li><a href="<c:url value='/painel/endereco'/>"><i class="fa fa-angle-double-right"></i> Endereço</a></li>                            
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-laptop"></i> <span>Midias</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<c:url value='/painel/uploads'/>"><i class="fa fa-angle-double-right"></i> Uploads de Fotos</a></li>
+                                 <li><a href="<c:url value='/painel/socialMedias'/>"><i class="fa fa-angle-double-right"></i> Midias Sociais</a></li>                              
+                            </ul>
+                        </li>
+                    </sec:authorize>
+                    </c:if>
+                        <sec:authorize access="hasRole('ADMIN')">
                          <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-edit"></i> <span>Administração</span>
@@ -69,5 +72,5 @@
                                 <li><a href="<c:url value='/admin/tipoServico'/>"><i class="fa fa-angle-double-right"></i> Tipos de Serviços</a></li>                            
                             </ul>
                         </li>
-                     
+                        </sec:authorize>
                     </ul>

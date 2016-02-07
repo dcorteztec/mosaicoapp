@@ -1,8 +1,7 @@
 package br.com.mosaicoweb.service.impl;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,7 +31,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
     public void save(Usuario usuario){
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         UsuarioPerfil usuarioPerfil = usuarioPerfilService.findById(Constantes.ID_USUARIOPERFIL_USER);
-        Set<UsuarioPerfil> usuarioPerfis = new HashSet<UsuarioPerfil>();
+        List<UsuarioPerfil> usuarioPerfis = new ArrayList<UsuarioPerfil>();
         usuarioPerfis.add(usuarioPerfil);
         usuario.setUsuarioPerfis(usuarioPerfis);
         dao.save(usuario);

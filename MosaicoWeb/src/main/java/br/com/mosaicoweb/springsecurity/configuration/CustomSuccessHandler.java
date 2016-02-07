@@ -32,7 +32,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		String targetUrl = determineUrldeAcesso(authentication);
 
 		if (response.isCommitted()) {
-			System.out.println("Can't redirect");
 			return;
 		}
 
@@ -43,11 +42,12 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		Usuario usuario = usuarioService.findByEmail(getPrincipal().getUsername());
 		String url = "";
 		
-		if(usuario.getPrimeiroAcesso()!=null){
+		if(usuario.getPrimeiroAcesso()==null&&!usuario.getUsuarioPerfis().get(0).getTipo().equals("ADMIN")){
+			url="/primeiro_acesso";
+		}else if(usuario.getUsuarioPerfis().get(0).getTipo().equals("ADMIN")){
 			url="/admin";
 		}else{
-			//usuarioService.updatePrimeiroAcesso(usuario.getId());
-			url="/primeiro_acesso";
+			url="/painel";
 		}
 		
 		return url;

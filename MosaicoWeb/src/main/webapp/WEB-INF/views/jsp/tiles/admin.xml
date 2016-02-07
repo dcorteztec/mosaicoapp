@@ -22,5 +22,33 @@
     <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
     
   </definition>
+  
+  <definition name="mosaicoApp.painelAdmin" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/painel/painelAdmin.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.painelUser" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/painel/painelUser.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.socialMedias" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/socialMedias.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.uploads" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/uploads.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
  
 </tiles-definitions>

@@ -3,6 +3,7 @@ package br.com.mosaicomodel.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,21 @@ public class EmpresaDaoImpl extends AbstractDao<Long, Empresa> implements IEmpre
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.eq("usuario.id", idUser));
 		return (List<Empresa>)criteria.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Long> idsEmpresaByIdUsuario(Long idUser) {
+		 Criteria crit = createEntityCriteria();
+	     crit.setProjection(Projections.property("id"));
+	     crit.add(Restrictions.eq("usuario.id", idUser));
+	     return (List<Long>)crit.list();
+	}
+
+	@Override
+	public void updateEmpresa(Empresa emp) {
+		merge(emp);
+		
 	}
 
 }

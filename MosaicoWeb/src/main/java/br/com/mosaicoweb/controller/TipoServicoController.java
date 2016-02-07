@@ -20,7 +20,7 @@ import br.com.mosaicoweb.controller.abstracts.MainController;
 import br.com.mosaicoweb.service.interfaces.ITipoServicoService;
 
 @Controller
-public class TipoServicoConotroller  extends MainController{
+public class TipoServicoController  extends MainController{
 
 	 @Autowired ITipoServicoService tipoServicoService;
 	

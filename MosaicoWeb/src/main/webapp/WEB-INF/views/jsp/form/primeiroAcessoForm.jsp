@@ -21,7 +21,7 @@
 
 				<!-- /.box-header -->
 				<!-- form start -->
-				<form:form method="POST" modelAttribute="empresa" role="form">
+				<form:form method="POST" action="/mosaicoDeIdeias/primeiro_acesso" modelAttribute="empresa" enctype="multipart/form-data">
 				<div > 
 					<div class="box box-primary" style="height: 200px" >
 						<div class="box-header">
@@ -37,21 +37,47 @@
 							</div>
 							<div class="col-xs-4">
 								<div class="form-group">
-									<label for="telefone">Telefone</label> <input type="text"
-										class="form-control" id="telefone" name="telefone" placeholder="Telefone"
-										required="required">
+									<label for="telefone">Telefone</label>
+									<div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div> 
+										<input type="text"
+											class="form-control" id="telefone" name="telefone" placeholder="Telefone"
+											required="required" data-inputmask='"mask": "9999-9999"' data-mask>
+									</div>	
 								</div>
 							</div>
 							<div class="col-xs-4">
 								<div class="form-group">
-									<label for="cel">Celular</label> <input type="text"
-										class="form-control" id="cel" name="celular" placeholder="Celular">
+									<label for="cel">Celular</label> 
+									<div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div> 
+										<input type="text"
+											class="form-control" id="cel" name="celular" placeholder="Celular" data-inputmask='"mask": "99999-9999"' data-mask>
+									</div>	
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
 									<label for="site">Site</label> <input type="text"
 										class="form-control" id="site" name="site" placeholder="Site">
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="site">Upload Logo</label> <input type="file"
+										class="form-control" id="file" name="file" />
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+								 <label for="check">Serviços Atendidos</label>
+								  <div class="row-fluid" data-channel-checkboxes="#" style="row-fluid1">
+									<form:checkboxes element="div" cssClass="span1 row-fluid1" path="tServicos" itemValue="id" itemLabel="nome" items="${tServicos}" />
+                                   </div>
 								</div>
 							</div>
 						</div>

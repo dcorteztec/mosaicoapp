@@ -11,6 +11,8 @@ public interface ITipoServicoDao {
 	TipoServico findById(Long id);
 
 	List<TipoServico> listTipoServicos();
+	
+	List<Long> listIdTipoServicos();
 
 	TipoServico findByName(String nome);
 

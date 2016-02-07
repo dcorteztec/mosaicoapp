@@ -11,4 +11,12 @@ public interface IEnderecoDao {
 	Endereco findById(Long id);
 
 	List<Endereco> listEnderecos();
+	
+	Endereco findByCep(String cep);
+
+	void updateEndereco(Endereco endereco);
+
+	void deleteEndereco(Endereco endereco);
+	
+	List<Endereco> listEnderecosByIdEmpresa(List<Long> idsEmpresa);
 }

@@ -42,4 +42,15 @@ public class EmpresaServiceImpl implements IEmpresaService{
 		return dao.listEmpresas();
 	}
 
+	@Override
+	public List<Long> idsEmpresaByIdUsuario(Long idUser) {
+		return dao.idsEmpresaByIdUsuario(idUser);
+	}
+
+	@Override
+	public void updateEmpresa(Empresa emp) {
+		 dao.updateEmpresa(emp);
+		
+	}
+
 }

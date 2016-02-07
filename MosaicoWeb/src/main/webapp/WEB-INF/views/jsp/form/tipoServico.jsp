@@ -1,6 +1,7 @@
 <!-- Right side column. Contains the navbar and content of the page -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <aside class="right-side">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -34,10 +35,11 @@
 								<div class="box-header">
 									<h3 class="box-title">Tipos De Serviços</h3>
 								</div>
+								<div flash-message="5000" ></div> 
 								<div class="box-body">
 									<div class="col-xs-12">
 										<div class="form-group">
-											<label for="nome">Nome</label> <input type="text"
+											<label for="nome"><spring:message code="campo.nome"/></label> <input type="text"
 												class="form-control" ng-model="ctrl.tipoServico.nome"
 												name="nome" placeholder="Nome" required ng-minlength="3" />
 											<div class="has-error" ng-show="myForm.$dirty">
@@ -64,13 +66,15 @@
 
 								<div class="col-xs-8">
 									<div class="form-group">
+									
+									
 										<div class="form-actions floatRight">
 											<input type="submit"
 												value="{{!ctrl.tipoServico.id ? '<spring:message code="campo.add"/>' : '<spring:message code="campo.update"/>'}}"
 												class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
 											<button type="button" ng-click="ctrl.reset()"
 												class="btn btn-warning btn-sm"
-												ng-disabled="myForm.$pristine">Reset Form</button>
+												ng-disabled="myForm.$pristine"><spring:message code="campo.resetar"/></button>
 										</div>
 									</div>
 								</div>
@@ -91,35 +95,35 @@
 																<thead>
 																	<tr>
 																	<td>
-																		Cod
+																		<spring:message code="campo.cod"/>
 																		<input type="text" class="form-control" ng-model="search.id" name="cod" placeholder="Cod"/>
 																	</td>
 																	<td>
-																		Nome
+																		<spring:message code="campo.nome"/>
 																		<input type="text" class="form-control" ng-model="search.nome" name="nome" placeholder="Nome"/>
 																	</td>
 																	<td>
-																		Descrição
+																		<spring:message code="campo.descricao"/>
 																		<input type="text" class="form-control" ng-model="search.descricao" name="desc" placeholder="Descrição"/>
 																	</td>
 																</tr>
 																</thead>
 																<tbody>
-																	<tr dir-paginate="t in ctrl.tServicos | filter:search | itemsPerPage:10">
+																	<tr dir-paginate="t in ctrl.tServicos | filter:search | itemsPerPage:5">
 																		<td><span ng-bind="t.id"></span></td>
 																		<td><span ng-bind="t.nome"></span></td>
 																		<td><span ng-bind="t.descricao"></span></td>
 																		<td>
 																			<button type="button" ng-click="ctrl.edit(t.id)"
-																				class="btn btn-success custom-width">Edit</button>
+																				class="btn btn-success custom-width"><spring:message code="campo.update"/></button>
 																			<button type="button" ng-click="ctrl.remove(t.id)"
-																				class="btn btn-danger custom-width">Remove</button>
+																				class="btn btn-danger custom-width"><spring:message code="campo.remover"/></button>
 																		</td>
 																	</tr>
 																</tbody>
 															</table>
 															 <dir-pagination-controls
-														        max-size="10"
+														        max-size="5"
 														        direction-links="true"
 														        boundary-links="true" >
 														    </dir-pagination-controls>
@@ -133,7 +137,6 @@
 				</div>
 			</div>
 			<!-- /.box -->
-		</div>
 	</section>
 
 	<!-- /.content -->

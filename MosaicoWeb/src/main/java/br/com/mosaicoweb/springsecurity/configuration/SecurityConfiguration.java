@@ -49,7 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
         .antMatchers("/","/home","/newuser","/usuarioRest/**").permitAll()
-        .antMatchers("/admin/**","/primeiro_acesso/**").access("hasRole('ADMIN') or hasRole('USUARIO')")
+        .antMatchers("/admin/**").access("hasRole('ADMIN')")
+        .antMatchers("/primeiro_acesso/**","/painel/**").access("hasRole('ADMIN') or hasRole('USUARIO')")
         .and().formLogin().loginPage("/home").successHandler(customSuccessHandler)
         .usernameParameter("email").passwordParameter("senha")
         .and().exceptionHandling().accessDeniedPage("/Access_Denied");

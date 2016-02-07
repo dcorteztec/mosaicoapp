@@ -3,6 +3,7 @@ package br.com.mosaicomodel.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -47,6 +48,14 @@ public class TipoServicoDaoImpl extends AbstractDao<Long, TipoServico> implement
 	@Override
 	public void deleteTipoServico(TipoServico tipoServico) {		
 		delete(tipoServico);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Long> listIdTipoServicos() {
+		 Criteria crit = createEntityCriteria();
+	     crit.setProjection(Projections.property("id"));
+	     return (List<Long>)crit.list();
 	}
 	
 	

@@ -1,8 +1,8 @@
- #cadastroUsuario
-	{
-		padding-top: 60px;
-		padding-bottom: 40px;
-	}
+#cadastroUsuario {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
 .form-controlCustom {
 	background: transparent;
 	border: 1px solid #28a7e9;
@@ -20,63 +20,62 @@
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-#cadastroUsuario
-	{
-		background: #202020;
-	}
-#cadastroUsuario .form-control
-	{
-		background: transparent;
-		border: 1px solid #28a7e9;
-		border-radius: 2px;
-		box-shadow: none;
-		color: #fff;
-		margin-top: 6px;
-		margin-bottom: 16px;
-	}
-#cadastroUsuario label
-	{
-		font-weight: 500;
-	}
-#cadastroUsuario input
-	{
-		height: 50px;
-	}
-#cadastroUsuario input[type="submit"]
-	{
-		background: #28a7e9;
-		font-weight: bold;
-		-webkit-transition: all 0.4s ease-in-out;
-		        transition: all 0.4s ease-in-out;
-	}
-#cadastroUsuario input[type="submit"]:hover
-	{
-		background: transparent;
-	}
-#cadastroUsuario address
-	{
-		border-bottom: 1px solid #505050;
-		padding-top: 30px;
-	}
-#cadastroUsuario address .address-title
-	{
-		font-weight: bold;
-		font-size: 20px;
-		padding-bottom: 10px;
-	}
-#cadastroUsuario address span
-	{
-		display: block;
-		padding-bottom: 30px;
-	}
-#cadastroUsuario address .fa
-	{
-		border: 1px solid #fff;
-		border-radius: 2px;
-		width: 40px;
-		height: 40px;
-		line-height: 40px;
-		text-align: center;
-		margin-right: 10px;
-		margin-bottom: 10px;
-	}
+#cadastroUsuario {
+	background: #202020;
+}
+
+#cadastroUsuario .form-control {
+	background: transparent;
+	border: 1px solid #28a7e9;
+	border-radius: 2px;
+	box-shadow: none;
+	color: #fff;
+	margin-top: 6px;
+	margin-bottom: 16px;
+}
+
+#cadastroUsuario label {
+	font-weight: 500;
+}
+
+#cadastroUsuario input {
+	height: 50px;
+}
+
+#cadastroUsuario input[type="submit"] {
+	background: #28a7e9;
+	font-weight: bold;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+#cadastroUsuario input[type="submit"]:hover {
+	background: transparent;
+}
+
+#cadastroUsuario address {
+	border-bottom: 1px solid #505050;
+	padding-top: 30px;
+}
+
+#cadastroUsuario address .address-title {
+	font-weight: bold;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+#cadastroUsuario address span {
+	display: block;
+	padding-bottom: 30px;
+}
+
+#cadastroUsuario address .fa {
+	border: 1px solid #fff;
+	border-radius: 2px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
