@@ -22,8 +22,12 @@
         
         <link href="<c:url value='/static/admin/css/custom.css'/>" rel="stylesheet" type="text/css" />
         
-        <link href="<c:url value='/static/admin/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" type="text/css" />
-
+        <link href="<c:url value='/static/admin/css/ng-grid-panel.css'/>" rel="stylesheet" type="text/css" />
+        
+        <link href="<c:url value='/static/admin/css/sweetalert.css'/>" rel="stylesheet" type="text/css" />
+        
+        <link href="<c:url value='/static/admin/css/angular-bootstrap-lightbox.css'/>" rel="stylesheet" type="text/css" />
+        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -311,12 +315,16 @@
         <script src="<c:url value='/static/admin/js/bootstrap.min.js'/>" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="<c:url value='/static/admin/js/AdminLTE/app.js'/>" type="text/javascript"></script>
-        
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
         <script src="<c:url value='/static/js/controller/utilController.js' />"></script>
         <script src="<c:url value='/static/js/service/endereco_service.js' />"></script>
         <script src="<c:url value='/static/js/controller/endereco_controller.js' />"></script>
         <script src="<c:url value='/static/js/service/tipoServico_service.js' />"></script>
         <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
+        <script src="<c:url value='/static/js/service/acervo_service.js' />"></script>
+        <script src="<c:url value='/static/js/controller/acervo_controller.js' />"></script>
+        <script src="<c:url value='/static/js/config/acervo_config.js' />"></script>
         <script src="<c:url value='/static/js/controller/painel_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
         <script src="<c:url value='/static/js/googleMaps/ng-map.min.js'/>"></script>
@@ -325,6 +333,12 @@
         <script src="<c:url value='/static/js/controller/table_controller.js' />"></script>
         <script src="<c:url value='/static/admin/js/plugins/input-mask/jquery.inputmask.js'/>" type="text/javascript"></script>
         <script src="<c:url value='/static/admin/js/plugins/input-mask/jquery.inputmask.extensions.js'/>" type="text/javascript"></script>
+        <script src="<c:url value='/static/admin/js/ng-grid-panel.js'/>"></script>
+        <script src="<c:url value='/static/admin/js/angular-animate.js'/>"></script>
+        <script src="<c:url value='/static/admin/js/angular-bootstrap-lightbox.min.js'/>"></script>
+        <script src="<c:url value='/static/admin/js/sweetalert.min.js'/>"></script>
+        <script src="<c:url value='/static/admin/js/SweetAlert.js'/>"></script>
+        <script src="<c:url value='/static/admin/js/functions.js'/>"></script>
         <script src="http://maps.google.com/maps/api/js"></script>
           
        <script type="text/javascript">

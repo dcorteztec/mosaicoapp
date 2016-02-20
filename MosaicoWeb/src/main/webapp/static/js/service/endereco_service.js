@@ -1,6 +1,6 @@
 'use strict';
  
-AppAdmin.factory('EnderecoService', ['$http', '$q','Flash', function($http, $q,Flash){
+AppAdmin.factory('EnderecoService', ['$http', '$q', 'Flash', function($http, $q,Flash){
  
     return {
          

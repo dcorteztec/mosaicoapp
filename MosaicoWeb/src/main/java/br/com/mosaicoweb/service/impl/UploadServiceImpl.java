@@ -40,13 +40,13 @@ public class UploadServiceImpl implements IUploadService{
 
 	@Override
 	public void updateUpload(Upload upload) {
-		updateUpload(upload);
+		dao.updateUpload(upload);
 		
 	}
 
 	@Override
 	public void deleteUpload(Upload upload) {
-		deleteUpload(upload);
+		dao.deleteUpload(upload);
 		
 	}
 

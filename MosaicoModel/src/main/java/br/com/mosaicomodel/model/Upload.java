@@ -3,12 +3,10 @@ package br.com.mosaicomodel.model;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -22,10 +20,14 @@ public class Upload extends br.com.mosaicomodel.model.abstracts.Entity{
 
 	private static final long serialVersionUID = 1L;
 
-	@Lob 
-	@Basic(fetch=FetchType.LAZY)
-	@Column(name="URL_IMAGENS")
-	private String urlImagem;
+	@Column(name="URL")
+	private String url;
+	
+	@Column(name="THUMBURL")
+	private String thumbUrl;
+	
+	@Column(name="CAPTION")
+	private String caption;
 	
     @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "EMPRESA_ID")
@@ -42,12 +44,12 @@ public class Upload extends br.com.mosaicomodel.model.abstracts.Entity{
 		this.empresa = empresa;
 	}
 
-	public String getUrlImagem() {
-		return urlImagem;
+	public String getThumbUrl() {
+		return thumbUrl;
 	}
 
-	public void setUrlImagem(String urlImagem) {
-		this.urlImagem = urlImagem;
+	public void setThumbUrl(String thumbUrl) {
+		this.thumbUrl = thumbUrl;
 	}
 
 	public List<MultipartFile> getFiles() {
@@ -58,7 +60,20 @@ public class Upload extends br.com.mosaicomodel.model.abstracts.Entity{
 		this.files = files;
 	}
 
-	
-    
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getCaption() {
+		return caption;
+	}
+
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
     
 }

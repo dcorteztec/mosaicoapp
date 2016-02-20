@@ -50,5 +50,19 @@
     <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
     
   </definition>
+  
+  <definition name="mosaicoApp.acervo" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/acervo.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.lightBox" template="/WEB-INF/views/jsp/templates/lightbox-modal.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/templates/lightbox-modal.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/templates/lightbox-modal.jsp" />
+    
+  </definition>
  
 </tiles-definitions>

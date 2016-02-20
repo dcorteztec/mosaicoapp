@@ -34,7 +34,7 @@ public class UploadDaoImpl extends AbstractDao<Long, Upload> implements IUploadD
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Upload> listUploadsByIdEmpresa(Long id) {
-		Criteria criteria = createEntityCriteria();
+		Criteria criteria = createEntityCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.add(Restrictions.eq("empresa.id", id));
 		return (List<Upload>)criteria.list();
 	}

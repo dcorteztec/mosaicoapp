@@ -16,16 +16,18 @@
 	<section class="content">
 		<div class="row">
 			<!-- left column -->
-			<div class="col-md-6">
+			<div class="col-md-6"  ng-app="mosaicoAppAdmin">
 				<!-- general form elements -->
 
 				<!-- /.box-header -->
 				<!-- form start -->
 				<form:form method="POST" action="/mosaicoDeIdeias/painel/uploads"
 					modelAttribute="upload" enctype="multipart/form-data">
-					<div class="box box-primary" style="height: 200px">
+					<div class="box box-primary" style="height: 200px" ng-controller="AcervoController as ctrl">
+					<div ng-repeat='item in filtered = (ctrl.acervos | filter:filterExpr)'></div>
 						<div class="box-header">
-							<h3 class="box-title">Upload de Imagens</h3>
+							<h3 class="box-title">Upload de Imagens - Quantidade de imagens armazenada {{counter}} limite de 15</h3>
+							
 						</div>
 						<form:input type="hidden" path="id" id="id"/>
 						<div class="box-body">
@@ -40,7 +42,7 @@
 						
 						<div class="col-xs-12">
 							<div class="form-group">
-								<a onclick="AddMoreFile('fuTable')">Mais Fotos</a>
+								<a ng-click="add()">Mais Fotos</a>
 							</div>
 						</div>
 						
@@ -55,18 +57,7 @@
 				<!-- /.box -->
 			</div>
 		</div>
-		<script>
-			function AddMoreFile(tableID) {
-				var table = document.getElementById(tableID);
-				var rowCount = table.rows.length;
-				var row = table.insertRow(rowCount);
-				var col1 = row.insertCell(0);
-				var colInput = document.createElement("input");
-				colInput.type = "file";
-				colInput.name = "files";
-				col1.appendChild(colInput);
-			}
-		</script>
+		
 	</section>
 	<!-- /.content -->
 </aside>
