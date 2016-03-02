@@ -30,11 +30,9 @@ import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 @Controller
 public class EmpresaAdminController extends MainController{
 
-	@Autowired
-    IUsuarioPerfilService usuarioPerfilService;
+	@Autowired IUsuarioPerfilService usuarioPerfilService;
      
-    @Autowired
-    IUsuarioService usuarioService;
+    @Autowired IUsuarioService usuarioService;
     
     @Autowired IEmpresaService empresaService;
     

@@ -65,4 +65,18 @@
     
   </definition>
  
+  <definition name="mosaicoApp.mensagem" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/mensagem.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.mensagemAdmin" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/mensagemAdmin.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+ 
 </tiles-definitions>

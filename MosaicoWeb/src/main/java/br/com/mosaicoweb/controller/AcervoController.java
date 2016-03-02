@@ -71,7 +71,7 @@ public class AcervoController extends MainController{
 	        return new ResponseEntity<List<Upload>>(imagens, HttpStatus.OK);
 	    }
 	    
-	    @RequestMapping(value = "/painel/uploads", method = RequestMethod.POST)
+	    @RequestMapping(value = "/painel/acervo", method = RequestMethod.POST)
 	    public String uploadsForm(@Valid Upload upload,
 	           BindingResult result, ModelMap model) throws IOException {
 	       Usuario usuario = usuarioService.findByEmail(getPrincipal());

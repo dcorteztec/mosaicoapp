@@ -55,7 +55,8 @@ AppAdmin.controller('AcervoController', ['$scope', 'AcervoService','Lightbox','S
                     		  modal.remove(),
                     		  backdrop = angular.element(document.querySelector('.modal-backdrop')),
                     		  backdrop.remove(),
-                    		  window.location.href = '/mosaicoDeIdeias/painel/acervo',
+                    		  window.document.getElementById(id).style.visibility = "hidden",
+                    		  //window.location.href = '/mosaicoDeIdeias/painel/acervo',
                     		  self.fetchAllImages(),
                               function(errResponse){
                                    console.error('Error while deleting image.');

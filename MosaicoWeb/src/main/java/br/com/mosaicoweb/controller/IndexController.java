@@ -40,13 +40,16 @@ public class IndexController extends MainController{
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
     	Usuario usuario = new Usuario();
+    	
     	model.addAttribute("usuario", usuario);
         return "mosaicoApp.home";
     }
  
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap model) {
+    	Usuario usuario = usuarioService.findByEmail(getPrincipal());
         model.addAttribute("usuario", getPrincipal());
+        model.addAttribute("perfil", usuario.getUsuarioPerfis().get(0).getId());
         return "mosaicoApp.painelAdmin";
     }
 
@@ -56,6 +59,7 @@ public class IndexController extends MainController{
     	List<Empresa> empresas = empresaService.listEmpresasByIdUsuario(usuario.getId());
     	model.addAttribute("empresa", empresas.get(0));
         model.addAttribute("usuario", getPrincipal());
+        model.addAttribute("perfil", usuario.getUsuarioPerfis().get(0).getId());
         return "mosaicoApp.painelUser";
     }
   

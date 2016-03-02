@@ -14,15 +14,47 @@
 
 	<!-- Main content -->
 	<section class="content">
-		<div class="row">
+		<div ng-app="mosaicoAppAdmin">
 			<!-- left column -->
-			<div class="col-md-6">
-				<!-- general form elements -->
+			<input type="hidden" id="perfil" value="${perfil}" />
+			<div ng-controller="PainelController as vm">
 
-				<!-- /.box-header -->
-				<!-- form start -->
-				
-				<!-- /.box -->
+			
+              <div class="row">
+					<div class="col-md-4" ng-repeat="text in vm.mensagens">
+						<h3>Mensagem dos Usuários</h3>
+						<div class="box">
+							<div class="{{text.classe}}"  id="{{text.id}}">
+								<div class="box-header">
+									<h3 class="box-title">{{text.empresa.nome}} - {{text.dataHoraFormatada}}</h3>
+									<div class="box-tools pull-right">
+						
+										<button  type="button" class="{{text.classe}}" ng-click="vm.remove(text.id)"
+											data-toggle="tooltip" title="Remove" id="idRemove">
+											<i class="fa fa-times"></i>
+										</button>
+									</div>
+								</div>
+								<div class="box-body">
+									<p>{{text.texto}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+              
+
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Localizacão dos Endereços cadastrados</h3>
+						<ng-map zoom="7" center="[-22.18 , -43.23]"
+							street-view-control="true"> <marker
+							ng-repeat="p in vm.enderecos" position="{{p.lat}},{{p.lng}}"
+							data="{{data[$index]}}" title="pos: {{p.logradouro}}"
+							on-click="vm.showDetail(p)"></marker> </ng-map>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

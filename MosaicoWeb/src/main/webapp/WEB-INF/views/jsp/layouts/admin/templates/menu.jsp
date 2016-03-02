@@ -62,6 +62,12 @@
                                                              
                             </ul>
                         </li>
+                        <li>
+                            <a href="<c:url value='/painel/mensagem'/>">
+                                <i class="fa fa-envelope"></i> <span>Mensagem</span>
+<!--                                 <small class="badge pull-right bg-yellow">12</small> -->
+                            </a>
+                        </li>
                     </sec:authorize>
                     </c:if>
                         <sec:authorize access="hasRole('ADMIN')">
@@ -73,6 +79,12 @@
                             <ul class="treeview-menu">
                                 <li><a href="<c:url value='/admin/tipoServico'/>"><i class="fa fa-angle-double-right"></i> Tipos de Serviços</a></li>                            
                             </ul>
+                        </li>
+                        <li>
+                            <a href="<c:url value='/admin/mensagem'/>">
+                                <i class="fa fa-envelope"></i> <span>Mensagem</span>
+<!--                                 <small class="badge pull-right bg-yellow">12</small> -->
+                            </a>
                         </li>
                         </sec:authorize>
                     </ul>

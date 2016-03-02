@@ -21,7 +21,7 @@
 
 				<!-- /.box-header -->
 				<!-- form start -->
-				<form:form method="POST" action="/mosaicoDeIdeias/painel/uploads"
+				<form:form method="POST" action="/mosaicoDeIdeias/painel/acervo"
 					modelAttribute="upload" enctype="multipart/form-data">
 					<div class="box box-primary" style="height: 200px" ng-controller="AcervoController as ctrl">
 					<div ng-repeat='item in filtered = (ctrl.acervos | filter:filterExpr)'></div>

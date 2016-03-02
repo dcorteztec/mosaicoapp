@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.mosaicomodel.type.Status;
+
 @Entity
 @Table(name="TB_USUARIO")
 @AttributeOverride(name = "USUARIO_ID", column = @Column(name = "COD_ID", nullable = false))

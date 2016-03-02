@@ -1,4 +1,4 @@
-package br.com.mosaicomodel.model;
+package br.com.mosaicomodel.type;
 
 public enum Status {
 

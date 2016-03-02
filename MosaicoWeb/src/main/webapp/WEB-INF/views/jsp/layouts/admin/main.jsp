@@ -28,6 +28,8 @@
         
         <link href="<c:url value='/static/admin/css/angular-bootstrap-lightbox.css'/>" rel="stylesheet" type="text/css" />
         
+        <link href="<c:url value='/static/admin/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'/>" rel="stylesheet" type="text/css" />
+        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -324,6 +326,8 @@
         <script src="<c:url value='/static/js/controller/tipoServico_controller.js' />"></script>
         <script src="<c:url value='/static/js/service/acervo_service.js' />"></script>
         <script src="<c:url value='/static/js/controller/acervo_controller.js' />"></script>
+        <script src="<c:url value='/static/js/service/mensagem_service.js' />"></script>
+        <script src="<c:url value='/static/js/controller/mensagem_controller.js' />"></script>
         <script src="<c:url value='/static/js/config/acervo_config.js' />"></script>
         <script src="<c:url value='/static/js/controller/painel_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
@@ -339,6 +343,7 @@
         <script src="<c:url value='/static/admin/js/sweetalert.min.js'/>"></script>
         <script src="<c:url value='/static/admin/js/SweetAlert.js'/>"></script>
         <script src="<c:url value='/static/admin/js/functions.js'/>"></script>
+         <script src="<c:url value='/static/admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'/>"></script>
         <script src="http://maps.google.com/maps/api/js"></script>
           
        <script type="text/javascript">

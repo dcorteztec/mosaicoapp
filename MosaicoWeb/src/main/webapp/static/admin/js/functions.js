@@ -13,3 +13,4 @@ function AddMoreFile(tableID) {
 		col1.appendChild(colInput);
 	}
 }
+

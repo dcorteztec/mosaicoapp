@@ -26,10 +26,10 @@
 				<div ng-controller="AcervoController as ctrl" >
 				<form ng-submit="ctrl.submit()" name="myForm"
 							class="form-horizontal">
-				<ul class="gallery gallery1" id="ulID">			
+				<ul class="gallery gallery1" >			
 				<li ng-repeat="image in acervos" class="dropdown notifications-menu">
 				    <a ng-click="openLightboxModal($index)">
-				      <img ng-src="{{image.thumbUrl}}"  class="img-circle">
+				      <img ng-src="{{image.thumbUrl}}"  id="{{image.id}}" class="img-circle">
 				    </a>
 				    
 				 </li>			

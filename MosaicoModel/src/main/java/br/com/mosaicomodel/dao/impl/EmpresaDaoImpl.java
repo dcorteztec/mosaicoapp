@@ -35,14 +35,14 @@ public class EmpresaDaoImpl extends AbstractDao<Long, Empresa> implements IEmpre
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empresa> listEmpresas() {
-		Criteria criteria = createEntityCriteria();
+		Criteria criteria = createEntityCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return (List<Empresa>)criteria.list();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empresa> listEmpresasByIdUsuario(Long idUser) {
-		Criteria criteria = createEntityCriteria();
+		Criteria criteria = createEntityCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.add(Restrictions.eq("usuario.id", idUser));
 		return (List<Empresa>)criteria.list();
 	}
@@ -50,7 +50,7 @@ public class EmpresaDaoImpl extends AbstractDao<Long, Empresa> implements IEmpre
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Long> idsEmpresaByIdUsuario(Long idUser) {
-		 Criteria crit = createEntityCriteria();
+		 Criteria crit = createEntityCriteria().setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 	     crit.setProjection(Projections.property("id"));
 	     crit.add(Restrictions.eq("usuario.id", idUser));
 	     return (List<Long>)crit.list();
