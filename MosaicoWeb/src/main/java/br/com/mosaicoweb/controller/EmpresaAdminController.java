@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.mosaicomodel.model.Empresa;
 import br.com.mosaicomodel.model.Endereco;
+import br.com.mosaicomodel.model.TipoServico;
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.util.Constantes;
 import br.com.mosaicoweb.controller.abstracts.MainController;
@@ -127,4 +128,19 @@ public class EmpresaAdminController extends MainController{
         return new ResponseEntity<Endereco>(HttpStatus.NO_CONTENT);
     }
   
+    @RequestMapping(value = "/listEmpresas/", method = RequestMethod.GET)
+    public ResponseEntity<List<Empresa>> listIndexEmpresas() {
+        List<Empresa> empresas = empresaService.listEmpresas();
+        String nomeServico = "";
+        for (Empresa empresa : empresas) {
+			for (TipoServico tservicos : empresa.getEmpresaTipoServico()) {
+				nomeServico += tservicos.getNome()+ " ";
+				empresa.setServicos(nomeServico);
+			}
+		}
+        if(empresas.isEmpty()){
+            return new ResponseEntity<List<Empresa>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Empresa>>(empresas, HttpStatus.OK);
+    }
 }

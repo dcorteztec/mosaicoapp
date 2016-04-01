@@ -10,12 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.social.facebook.security.FacebookAuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 
 import br.com.mosaicomodel.model.Empresa;
 import br.com.mosaicomodel.model.Usuario;
@@ -37,10 +43,19 @@ public class IndexController extends MainController{
     @Autowired
     IEmpresaService empresaService;
     
+	private final ProviderSignInUtils providerSignInUtils;
+    
+	@Autowired
+	public IndexController(
+		                    ConnectionFactoryLocator connectionFactoryLocator,
+		                    UsersConnectionRepository connectionRepository) {
+		this.providerSignInUtils = new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
+	}
+    
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
     	Usuario usuario = new Usuario();
-    	
+  	
     	model.addAttribute("usuario", usuario);
         return "mosaicoApp.home";
     }
@@ -72,6 +87,15 @@ public class IndexController extends MainController{
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(ModelMap model) {
         return "mosaicoApp.admin";
+    }
+    
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String redirectFacebook(WebRequest request) {
+    	Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
+    	String email = connection.fetchUserProfile().getEmail();
+    	String userId = connection.getKey().getProviderUserId();
+    	
+        return "redirect:/home";
     }
  
     @RequestMapping(value="/logout", method = RequestMethod.GET)

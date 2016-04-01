@@ -101,6 +101,15 @@ public class TipoServicoController  extends MainController{
         return new ResponseEntity<List<TipoServico>>(tServicos, HttpStatus.OK);
     }
     
+    @RequestMapping(value = "/tipoServico/", method = RequestMethod.GET)
+    public ResponseEntity<List<TipoServico>> listIndexTipoServicos() {
+        List<TipoServico> tServicos = tipoServicoService.listTipoServicos();
+        if(tServicos.isEmpty()){
+            return new ResponseEntity<List<TipoServico>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<TipoServico>>(tServicos, HttpStatus.OK);
+    }
+    
     @RequestMapping(value = "/admin/tipoServicoJson", method = RequestMethod.GET)
     public ResponseEntity<List<TipoServico>> listTipoServicosJson() {
         List<TipoServico> tServicos = tipoServicoService.listTipoServicos();

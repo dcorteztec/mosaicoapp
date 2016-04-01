@@ -12,6 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SocialUserDetailsService;
+import org.springframework.social.security.SpringSocialConfigurer;
+
+import br.com.mosaicoweb.springsecurity.service.SimpleSocialUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -36,6 +40,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         return new BCryptPasswordEncoder();
     }
      
+    @Bean
+    public SocialUserDetailsService socialUserDetailsService() {
+        return new SimpleSocialUserDetailsService(userDetailsService);
+    }
      
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -48,12 +56,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
-        .antMatchers("/","/home","/newuser","/usuarioRest/**").permitAll()
+        .antMatchers("/","/home","/newuser","/usuarioRest/**","/auth/**","/signup/**","/signin/**").permitAll()
         .antMatchers("/admin/**").access("hasRole('ADMIN')")
         .antMatchers("/primeiro_acesso/**","/painel/**").access("hasRole('ADMIN') or hasRole('USUARIO')")
-        .and().formLogin().loginPage("/home").successHandler(customSuccessHandler)
+        .and().formLogin().loginPage("/home").successHandler(customSuccessHandler).loginProcessingUrl("/home/authenticate")
         .usernameParameter("email").passwordParameter("senha")
-        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+        .and().exceptionHandling().accessDeniedPage("/Access_Denied")
+        .and().apply(new SpringSocialConfigurer());
          http.csrf().disable();       
     }
 }

@@ -51,4 +51,13 @@ $(function(){
 $(window).load(function(){
 	$('.preloader').fadeOut(1000); // set duration in brackets    
 });
+$(window).ready(function() {
+	console.log(this.URL.indexOf("home?error"));
+	 if (this.URL.indexOf("home?error") > 1) {
+	 swal({
+		 	title: "Login ou Senha incorretos",
+		   		type: "error"    
+	 	});
+	 }
+});
 /* end preloader */

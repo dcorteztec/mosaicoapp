@@ -75,6 +75,9 @@ public class Empresa extends br.com.mosaicomodel.model.abstracts.Entity {
 	private String dataFormatada;
 	
 	@Transient
+	private String servicos;
+	
+	@Transient
 	MultipartFile file;
 
 	public MultipartFile getFile() {
@@ -201,6 +204,14 @@ public class Empresa extends br.com.mosaicomodel.model.abstracts.Entity {
 
 	public void setDataFormatada(String dataFormatada) {
 		this.dataFormatada = dataFormatada;
+	}
+
+	public String getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(String servicos) {
+		this.servicos = servicos;
 	}
 
     

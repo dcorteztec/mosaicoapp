@@ -89,6 +89,10 @@
                       
                       <input type="submit"  value="REGISTRAR" class="form-control" ng-disabled="myForm.$invalid">
                  </form>
+                  <a href="${pageContext.request.contextPath}/auth/facebook" class="btn btn-block btn-social btn-facebook">
+                                        <i class="fa fa-facebook"></i> Sign in with Facebook
+                                    </a>
+                 
 			</div>                      
     				</div>
     			</div>
