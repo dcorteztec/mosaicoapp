@@ -1,6 +1,6 @@
 'use strict';
  
-AppAdmin.controller('PainelController', ['$scope','$http','EnderecoService','NgMap','MensagemService', function($scope,$http,EnderecoService,NgMap,MensagemService) {
+AppAdmin.controller('PainelController', ['$scope','$http','EnderecoService','NgMap','MensagemService','AcervoService', function($scope,$http,EnderecoService,NgMap,MensagemService,AcervoService) {
 	 var self = this;
 	 self.endereco={id:null,empresaId:'',empresaNome:'',cep:'',logradouro:'',numero:'',complemento:'',estado:'',cidade:'',bairro:'',lat:'',lng:''};
 	 self.enderecos=[];
@@ -8,7 +8,10 @@ AppAdmin.controller('PainelController', ['$scope','$http','EnderecoService','NgM
 	 self.mensagens=[];
 	 self.mensagemUser={id:null,tipo:'',texto:'',status:'',classe:'',idEmpresa:null,dataHora:'',empresa:'',dataHoraFormatada:''};
      self.mensagensUser=[];
-	 var perfilId = window.document.getElementById("perfil").value;     
+     
+     
+     var perfilId = window.document.getElementById("perfil").value;     
+	 
 	 
 	 NgMap.getMap().then(function(map) {
 		    console.log('map', map);
@@ -29,6 +32,8 @@ AppAdmin.controller('PainelController', ['$scope','$http','EnderecoService','NgM
          infowindow.setPosition(center);
          infowindow.open(self.map);
 	  };
+	 
+	  
 	 
 	 
 	  self.fetchAllMensagensAdmin = function(){
@@ -103,6 +108,7 @@ AppAdmin.controller('PainelController', ['$scope','$http','EnderecoService','NgM
      
      self.fetchAllEnderecos();
      
+    
      if(perfilId==1){
     	 self.fetchAllMensagensAdmin();
      }else{

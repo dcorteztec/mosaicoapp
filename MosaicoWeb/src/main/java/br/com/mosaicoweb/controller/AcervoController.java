@@ -103,6 +103,15 @@ public class AcervoController extends MainController{
 	      
 	    }
 	    
+	    @RequestMapping(value = "/acervos/{id}", method = RequestMethod.GET)
+	    public ResponseEntity<List<Upload>> listPerfilImagens(@PathVariable("id") long id) {
+	        List<Upload> imagens = uploadService.listUploadsByIdEmpresa(id);
+	        if(imagens.isEmpty()){
+	            return new ResponseEntity<List<Upload>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+	        }
+	        return new ResponseEntity<List<Upload>>(imagens, HttpStatus.OK);
+	    }
+	    
 	    @RequestMapping(value = "/painel/acervo/{id}", method = RequestMethod.DELETE)
 	    public ResponseEntity<Upload> deleteImagem(@PathVariable("id") long id) {
 	   

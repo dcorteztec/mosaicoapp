@@ -57,7 +57,5 @@ public class TipoServicoDaoImpl extends AbstractDao<Long, TipoServico> implement
 	     crit.setProjection(Projections.property("id"));
 	     return (List<Long>)crit.list();
 	}
-	
-	
 
 }

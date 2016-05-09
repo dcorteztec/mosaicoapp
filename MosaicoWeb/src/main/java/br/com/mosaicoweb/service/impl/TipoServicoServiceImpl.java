@@ -52,5 +52,4 @@ public class TipoServicoServiceImpl implements ITipoServicoService{
 		dao.deleteTipoServico(tipoServico);
 		
 	}
-
 }

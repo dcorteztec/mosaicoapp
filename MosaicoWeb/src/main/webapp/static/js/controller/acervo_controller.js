@@ -7,7 +7,7 @@ AppAdmin.controller('AcervoController', ['$scope', 'AcervoService','Lightbox','S
           $scope.showA = true;
           $scope.acervo={id:null,url:'',thumbUrl:''};
           $scope.acervos=[];
-
+         
           
           self.fetchAllImages = function(){
         	  AcervoService.fetchAllImages()
@@ -22,6 +22,8 @@ AppAdmin.controller('AcervoController', ['$scope', 'AcervoService','Lightbox','S
                                 }
                        );
           };
+          
+         
             
           
           $scope.add = function(){
@@ -65,8 +67,7 @@ AppAdmin.controller('AcervoController', ['$scope', 'AcervoService','Lightbox','S
           };
           
           self.fetchAllImages();
-          
-          
+           
           self.remove = function(id){
               console.log('id to be deleted', id);
               for(var i = 0; i < self.acervos.length; i++){//clean form if the user to be deleted is shown there.

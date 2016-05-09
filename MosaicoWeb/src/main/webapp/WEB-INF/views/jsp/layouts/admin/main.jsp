@@ -343,7 +343,7 @@
         <script src="<c:url value='/static/admin/js/sweetalert.min.js'/>"></script>
         <script src="<c:url value='/static/admin/js/SweetAlert.js'/>"></script>
         <script src="<c:url value='/static/admin/js/functions.js'/>"></script>
-         <script src="<c:url value='/static/admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'/>"></script>
+         <script src="<c:url value='/static/admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'/>" charset="utf-8"></script>
         <script src="http://maps.google.com/maps/api/js"></script>
           
        <script type="text/javascript">

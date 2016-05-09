@@ -22,7 +22,9 @@ public class EmpresaDaoImpl extends AbstractDao<Long, Empresa> implements IEmpre
 
 	@Override
 	public Empresa findById(Long id) {
-		 return getByKey(id);
+		 Criteria crit = createEntityCriteria();
+		 crit.add(Restrictions.eq("id", id));
+	     return (Empresa) crit.uniqueResult();
 	}
 
 	@Override

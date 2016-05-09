@@ -68,7 +68,7 @@
                             <div class="portfolio-image">
                                 <img src="{{text.urlLogo}}" alt="">
                                 <div class="overlay">
-                                    <a class="preview btn btn-danger" rel="prettyPhoto" href="{{text.urlLogo}}"><i class="icon-eye-open"></i></a>             
+                                    <a class="preview btn btn-danger" ng-click="open(text)"><i class="icon-eye-open"></i></a>             
                                 </div>
                             </div>
                             <h5>{{text.nome}}</h5>

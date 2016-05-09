@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
  <head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 	
 		<meta name="keywords" content="">
 		<meta name="description" content="">
@@ -15,11 +15,13 @@
 		<link rel="stylesheet" href="<c:url value='/static/css/bootstrap.css' />">
 		<link rel="stylesheet" href="<c:url value='/static/css/custom.css' />">
 		<link rel="stylesheet" href="<c:url value='/static/css/main.css' />">
+		<link rel="stylesheet" href="<c:url value='/static/css/ngDialog.css' />">
+		<link rel="stylesheet" href="<c:url value='/static/css/ngDialog-theme-flat.css' />">
+		<link rel="stylesheet" href="<c:url value='/static/css/ngDialog-theme-default.css' />">
 		<link rel="stylesheet" href="<c:url value='/static/css/prettyPhoto.css' />">
 		<link rel="stylesheet" href="<c:url value='/static/css/font-awesome.min.css'/>">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<c:url value='/static/css/angular-flash.min.css'/>">
-		<link href="<c:url value='/static/admin/css/angular-bootstrap-lightbox.css'/>" rel="stylesheet" type="text/css" />
 		<link href="<c:url value='/static/admin/css/sweetalert.css'/>" rel="stylesheet" type="text/css" />
 		<link rel="shortcut icon" href="images/ico/favicon.ico">
 	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -51,16 +53,17 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="<c:url value='/static/js/app.js' />"></script>
         <script src="<c:url value='/static/js/angular-isotope.min.js' />"></script>
-         <script src="<c:url value='/static/js/config/index_config.js' />"></script>
+<%--          <script src="<c:url value='/static/js/config/index_config.js' />"></script> --%>
         <script src="<c:url value='/static/js/service/usuario_service.js' />"></script>
         <script src="<c:url value='/static/js/controller/usuario_controller.js' />"></script>
         <script src="<c:url value='/static/js/angular-flash.min.js'/>"></script>
-        <script src="<c:url value='/static/admin/js/angular-bootstrap-lightbox.min.js'/>"></script>
         <script src="<c:url value='/static/admin/js/sweetalert.min.js'/>"></script>
         <script src="<c:url value='/static/admin/js/SweetAlert.js'/>"></script>
         <script src="<c:url value='/static/js/sweet-alert-dev.js'/>"></script>
+         <script src="<c:url value='/static/js/ngDialog.min.js'/>"></script>
         <script src="<c:url value='/static/js/service/index_service.js' />"></script>
-        <script src="<c:url value='/static/js/controller/index_controller.js' />"></script>
+        <script src="<c:url value='/static/js/controller/index_controller.js' />" charset="UTF-8"></script>
+    
 	
   </body>
 </html>

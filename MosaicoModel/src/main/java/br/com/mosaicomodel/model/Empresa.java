@@ -68,6 +68,9 @@ public class Empresa extends br.com.mosaicomodel.model.abstracts.Entity {
 	@Column(name="PINTREST", nullable=true)
 	private String pintRest;
 	
+	@Column(name="DESCRICAO", nullable=true)
+	private String descricao;
+	
 	@Transient
 	private Long[] tServicos;
 
@@ -212,6 +215,14 @@ public class Empresa extends br.com.mosaicomodel.model.abstracts.Entity {
 
 	public void setServicos(String servicos) {
 		this.servicos = servicos;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
     

@@ -47,7 +47,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<c:url value='/painel/endereco'/>"><i class="fa fa-angle-double-right"></i> Endereço</a></li>                            
+                                <li><a href="<c:url value='/painel/endereco'/>"><i class="fa fa-angle-double-right"></i>Endereço</a></li>
+                                <li><a href="<c:url value='/painel/editarEmpresa'/>"><i class="fa fa-angle-double-right"></i>Sua Empresa</a></li>
+                                 <li><a href="<c:url value='/painel/descricaoEmpresa'/>"><i class="fa fa-angle-double-right"></i>Descrição</a></li>                                   
                             </ul>
                         </li>
                         <li class="treeview">

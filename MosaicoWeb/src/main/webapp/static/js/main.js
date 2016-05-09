@@ -50,10 +50,10 @@ jQuery(function($) {
 		var $spy = $(this).scrollspy('refresh')
 	})
 
-	//PrettyPhoto
-	$("a.preview").prettyPhoto({
-		social_tools: false
-	});
+//	//PrettyPhoto
+//	$("a.preview").prettyPhoto({
+//		social_tools: false
+//	});
 
 	
 });

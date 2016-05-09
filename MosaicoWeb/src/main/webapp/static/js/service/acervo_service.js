@@ -16,6 +16,19 @@ AppAdmin.factory('AcervoService', ['$http', '$q','Flash', function($http, $q,Fla
                                     }
                             );
             },
+            
+            fetchAllImagesPerfil: function(id) {
+                return $http.get('/mosaicoDeIdeias/acervos/'+id)
+                        .then(
+                                function(response){
+                                    return response.data;
+                                }, 
+                                function(errResponse){
+                                    console.error('Error while fetching users');
+                                    return $q.reject(errResponse);
+                                }
+                        );
+        },
              
 //            createService: function(tipoServico){
 //                    return $http.post('/mosaicoDeIdeias/admin/tipoServico/', tipoServico)

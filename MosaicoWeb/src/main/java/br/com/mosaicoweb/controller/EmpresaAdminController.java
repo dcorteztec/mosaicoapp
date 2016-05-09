@@ -1,7 +1,10 @@
 package br.com.mosaicoweb.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +28,7 @@ import br.com.mosaicomodel.util.Constantes;
 import br.com.mosaicoweb.controller.abstracts.MainController;
 import br.com.mosaicoweb.service.interfaces.IEmpresaService;
 import br.com.mosaicoweb.service.interfaces.IEnderecoService;
+import br.com.mosaicoweb.service.interfaces.ITipoServicoService;
 import br.com.mosaicoweb.service.interfaces.IUploadService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioService;
@@ -42,6 +47,8 @@ public class EmpresaAdminController extends MainController{
     @Autowired IndexController indexController;
     
     @Autowired IUploadService uploadService;
+    
+    @Autowired ITipoServicoService tipoSService;
     
     @RequestMapping(value = "/painel/endereco", method = RequestMethod.GET)
     public String enderecoForm(ModelMap model) {
@@ -136,11 +143,75 @@ public class EmpresaAdminController extends MainController{
 			for (TipoServico tservicos : empresa.getEmpresaTipoServico()) {
 				nomeServico += tservicos.getNome()+ " ";
 				empresa.setServicos(nomeServico);
+				
 			}
 		}
         if(empresas.isEmpty()){
             return new ResponseEntity<List<Empresa>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<Empresa>>(empresas, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/painel/descricaoEmpresa", method = RequestMethod.GET)
+    public String descricaoEmpresa(ModelMap model) {
+    
+        Usuario usuario = usuarioService.findByEmail(getPrincipal());
+        model.addAttribute("usuario", getPrincipal());
+        List<Empresa> empresas = empresaService.listEmpresasByIdUsuario(usuario.getId());
+        try {
+			empresas.get(0).setDescricao(isoToUtf8(empresas.get(0).getDescricao()));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+        model.addAttribute("empresas", empresas);
+        model.addAttribute("empresa", empresas.get(0));
+        
+        return "mosaicoApp.descricaoEmpresa";
+    }
+    
+    @RequestMapping(value = "/painel/editarEmpresa", method = RequestMethod.GET)
+    public String editarEmpresa(ModelMap model) {
+    	List<TipoServico> tipoList = tipoSService.listTipoServicos();
+    	
+        Usuario usuario = usuarioService.findByEmail(getPrincipal());
+        model.addAttribute("usuario", getPrincipal());
+        List<Empresa> empresas = empresaService.listEmpresasByIdUsuario(usuario.getId());
+        model.addAttribute("empresas", empresas);
+        model.addAttribute("empresa", empresas.get(0));
+        for (TipoServico tipoServico : tipoList) {
+			 for (TipoServico tipoServicoEmpresa : empresas.get(0).getEmpresaTipoServico()) {
+				if(tipoServico.getId().equals(tipoServicoEmpresa.getId())){
+					tipoServico.setCheck(true);
+				}
+			}
+		}
+        model.addAttribute("tServicos", tipoList);
+        return "mosaicoApp.editarEmpresa";
+    }
+    
+    @RequestMapping(value = "/painel/criarDescricao", method = RequestMethod.POST)
+    public String createDescricao(@Valid Empresa empresa,
+            BindingResult result, ModelMap modelr) {
+        Empresa emp = empresaService.findById(empresa.getId());   
+        try {
+			emp.setDescricao((isoToUtf8(empresa.getDescricao())));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+        modelr.addAttribute("usuario", getPrincipal());
+        modelr.addAttribute("empresa", emp);
+        empresaService.updateEmpresa(emp);
+  
+        return "mosaicoApp.painelUser";
+    }
+    
+    @RequestMapping(value = "/perfil/{id}", method = RequestMethod.GET)
+    public String perfilEmpresa(@PathVariable("id") long id,ModelMap model) {
+    
+        Empresa empresa = empresaService.findById(id);
+        model.addAttribute("empresa", empresa);
+        
+        
+        return "mosaicoApp.perfilEmpresa";
     }
 }

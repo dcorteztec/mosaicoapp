@@ -19,4 +19,5 @@ public interface ITipoServicoService {
 	   void deleteTipoServico(TipoServico servico);
 	   
 	   List<Long> listIdTipoServicos();
+
 }

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -14,7 +16,6 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.web.ProviderSignInUtils;
-import org.springframework.social.facebook.security.FacebookAuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -24,10 +25,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 
 import br.com.mosaicomodel.model.Empresa;
+import br.com.mosaicomodel.model.Upload;
 import br.com.mosaicomodel.model.Usuario;
 import br.com.mosaicomodel.model.UsuarioPerfil;
 import br.com.mosaicoweb.controller.abstracts.MainController;
 import br.com.mosaicoweb.service.interfaces.IEmpresaService;
+import br.com.mosaicoweb.service.interfaces.IUploadService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioPerfilService;
 import br.com.mosaicoweb.service.interfaces.IUsuarioService;
 
@@ -42,6 +45,9 @@ public class IndexController extends MainController{
     
     @Autowired
     IEmpresaService empresaService;
+    
+    @Autowired 
+    IUploadService uploadService;
     
 	private final ProviderSignInUtils providerSignInUtils;
     
@@ -65,7 +71,7 @@ public class IndexController extends MainController{
     	Usuario usuario = usuarioService.findByEmail(getPrincipal());
         model.addAttribute("usuario", getPrincipal());
         model.addAttribute("perfil", usuario.getUsuarioPerfis().get(0).getId());
-        return "mosaicoApp.painelAdmin";
+        return "mosaicoApp.painelAdmin";	
     }
 
     @RequestMapping(value = "/painel", method = RequestMethod.GET)
@@ -123,5 +129,5 @@ public class IndexController extends MainController{
     public List<UsuarioPerfil> initializeProfiles() {
         return usuarioPerfilService.findAll();
     }
- 
+    
 }

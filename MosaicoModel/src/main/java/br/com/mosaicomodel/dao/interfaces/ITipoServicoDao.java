@@ -19,4 +19,5 @@ public interface ITipoServicoDao {
 	void updateTipoService(TipoServico tipoServico);
 
 	void deleteTipoServico(TipoServico tipoServico);
+
 }

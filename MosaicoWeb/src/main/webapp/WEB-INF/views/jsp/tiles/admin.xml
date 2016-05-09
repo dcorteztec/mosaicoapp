@@ -66,16 +66,36 @@
   </definition>
  
   <definition name="mosaicoApp.mensagem" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
-    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="title" value="Envie uma Mensagem" />
     <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/mensagem.jsp" />
     <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
     
   </definition>
   
    <definition name="mosaicoApp.mensagemAdmin" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
-    <put-attribute name="title" value="Bem vindo ao Mosaico App" />
+    <put-attribute name="title" value="Envie uma Mensagem" />
     <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/mensagemAdmin.jsp" />
     <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+                                      
+  <definition name="mosaicoApp.editarEmpresa" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Olha ai Sua Empresa" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/editarEmpresaForm.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+  <definition name="mosaicoApp.descricaoEmpresa" template="/WEB-INF/views/jsp/layouts/admin/main.jsp">
+    <put-attribute name="title" value="Crie uma Descrição da Sua Empresa" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/descricaoEmpresaForm.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/layouts/admin/templates/menu.jsp" />
+    
+  </definition>
+  
+   <definition name="mosaicoApp.perfilEmpresa" template="/WEB-INF/views/jsp/layouts/admin/mainPerfil.jsp">
+    <put-attribute name="title" value="Perfil" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/form/perfilEmpresa.jsp" />
     
   </definition>
  
